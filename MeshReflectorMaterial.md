@@ -11,7 +11,6 @@ ________________________________________________________________________________
 
 ## Properties
 * **normalScale**
-
     is used to specify how to scale the normals of a reflected object in a WebXR application.
 
     The normal scale property controls the appearance of the reflections on the surface of an object that is using the MeshReflectorMaterial. The normals of the reflected object are used to calculate the angle at which light should be reflected, and the normal scale property allows you to adjust this calculation. By changing the normal scale property, you can control the intensity and quality of the reflections on the surface of the object.
