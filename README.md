@@ -1,5 +1,5 @@
 # Drei-Documentation
-This repository is a work on progress. Below you can find documentation for properties and components of Drei library.
+This repository is a work on progress.
 
 #### "Drei" is a JavaScript library for creating and working with 3D graphics in web applications. It is built on top of WebXR and Three.js, and provides an API for creating and manipulating 3D graphics in a web browser.
 
