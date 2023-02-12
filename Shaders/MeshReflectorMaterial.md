@@ -10,6 +10,17 @@
 ______________________________________________________________________________________________________________
 
 ## Properties
+* **dispose**
+
+    is a method that is used to dispose of the resources associated with the material.
+
+    In a 3D graphics application, materials can consume significant amounts of memory and computational resources, especially when they involve reflections and other complex effects. The "dispose" property provides a way to clean up these resources when they are no longer needed.
+
+    When you call the "dispose" method on a MeshReflectorMaterial, it will release any memory and other resources that are associated with the material, freeing up resources for other parts of the application to use. This is particularly important when working with complex 3D scenes that may contain many materials, objects, and other resources.
+
+    In general, you should call the "dispose" method on a MeshReflectorMaterial when you are finished using it, or when you want to replace it with another material. This will help to ensure that the resources associated with the material are cleaned up in a timely and efficient manner, and will prevent potential performance issues in your 3D application.
+    
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
