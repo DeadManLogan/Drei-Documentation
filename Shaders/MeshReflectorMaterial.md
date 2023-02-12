@@ -29,12 +29,12 @@ ________________________________________________________________________________
 
     The "addEventListener" method is used to attach an event listener to an element. You can specify the type of event you want to listen for (such as "click", "load", or "mousemove"), and the function you want to be called when the event occurs. For example:
 
-    ``` 
+    ```js
         document.querySelector("button").addEventListener("click", function() {
             console.log("Button was clicked");
         });
-    ```js
-
+    ```
+    
     In this example, an event listener is attached to a button element, and it will log a message to the console whenever the button is clicked.
 
     The "addEventListener" method is a powerful tool for working with events in JavaScript, and is used in many different types of web applications, including games, interactive user interfaces, and more.
