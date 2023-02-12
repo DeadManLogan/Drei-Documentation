@@ -60,6 +60,50 @@ ________________________________________________________________________________
 
     Please note that the exact implementation and usage of the "hasEventListener" property may vary depending on the library or framework you are using. Some libraries provide this functionality as part of their API, while others do not. If you are working with a specific library, it is best to consult the documentation for that library to learn how to use the "hasEventListener" property.
 
+* **hasEventListener**
+    is a method used in JavaScript to remove an event listener from an element.
+
+    In JavaScript, events are notifications that are sent to your script when certain things happen in the web page, such as a user clicking a button, a page finishing loading, or an element being updated. Event listeners are functions that are called when an event occurs, allowing you to respond to the event and take some action.
+
+    The "addEventListener" method is used to attach an event listener to an element, and the "removeEventListener" method is used to remove an event listener from an element. You can use the "removeEventListener" method to remove event listeners that you no longer need, or to stop responding to an event that is no longer relevant.
+
+    For example:
+
+    ```js
+        var button = document.querySelector("button");
+        var listener = function() { console.log("Button was clicked"); };
+
+        button.addEventListener("click", listener);
+
+        // Later on in your code...
+
+        button.removeEventListener("click", listener);
+    ```
+
+    In this example, an event listener is added to the button element using the "addEventListener" method, and later removed using the "removeEventListener" method.
+
+    It is important to remove event listeners that you no longer need, as leaving them attached can lead to memory leaks and other performance issues. Additionally, removing event listeners can help to keep your code organized and easy to maintain.
+
+* **dispatchEvent**
+    is a method used in JavaScript to manually trigger an event on an element.
+
+    In JavaScript, events are notifications that are sent to your script when certain things happen in the web page, such as a user clicking a button, a page finishing loading, or an element being updated. Event listeners are functions that are called when an event occurs, allowing you to respond to the event and take some action.
+
+    The "dispatchEvent" method is used to manually trigger an event on an element. When you call this method, an event of the specified type is created and dispatched to the element, as if it had occurred naturally in the web page. This can be useful when you need to simulate an event, or when you want to trigger an event programmatically.
+
+    For example:
+
+    ```js
+        var button = document.querySelector("button");
+        var clickEvent = new Event("click");
+
+        button.dispatchEvent(clickEvent);
+    ```
+
+    In this example, a new "click" event is created using the "Event" constructor, and then dispatched to the button element using the "dispatchEvent" method. This will trigger any event listeners that are attached to the button for the "click" event, just as if the button had been clicked by a user.
+
+    The "dispatchEvent" method is a powerful tool for working with events in JavaScript, and can be used in many different types of web applications, including games, interactive user interfaces, and more.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
