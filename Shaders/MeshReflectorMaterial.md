@@ -10,7 +10,7 @@
 ______________________________________________________________________________________________________________
 
 ## Properties
-&nbsp;
+
 * **dispose**
 
     is a method that is used to dispose of the resources associated with the material.
@@ -20,8 +20,7 @@ ________________________________________________________________________________
     When you call the "dispose" method on a MeshReflectorMaterial, it will release any memory and other resources that are associated with the material, freeing up resources for other parts of the application to use. This is particularly important when working with complex 3D scenes that may contain many materials, objects, and other resources.
 
     In general, you should call the "dispose" method on a MeshReflectorMaterial when you are finished using it, or when you want to replace it with another material. This will help to ensure that the resources associated with the material are cleaned up in a timely and efficient manner, and will prevent potential performance issues in your 3D application.
-&nbsp;
-&nbsp;
+
 * **addEventListener**
 
     is a method that is used in JavaScript to attach event listeners to an element.
@@ -40,6 +39,26 @@ ________________________________________________________________________________
 
     The "addEventListener" method is a powerful tool for working with events in JavaScript, and is used in many different types of web applications, including games, interactive user interfaces, and more.
 
+* **hasEventListener**
+
+    The "hasEventListener" property is typically used to check whether a specific event listener has been added to an element. In some libraries, it might return a Boolean value indicating whether an event listener with a specific type and function has been attached to an element.
+
+    For example:
+
+    ```js
+        var button = document.querySelector("button");
+        var listener = function() { console.log("Button was clicked"); };
+
+        button.addEventListener("click", listener);
+
+        if (button.hasEventListener("click", listener)) {
+            console.log("Event listener is attached to the button");
+        }
+    ```
+
+    In this example, the "hasEventListener" property is used to check whether the specified event listener has been attached to the button element. If it has, a message is logged to the console.
+
+    Please note that the exact implementation and usage of the "hasEventListener" property may vary depending on the library or framework you are using. Some libraries provide this functionality as part of their API, while others do not. If you are working with a specific library, it is best to consult the documentation for that library to learn how to use the "hasEventListener" property.
 
 * **normalScale**
 
