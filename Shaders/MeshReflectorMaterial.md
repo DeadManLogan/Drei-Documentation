@@ -60,7 +60,8 @@ ________________________________________________________________________________
 
     Please note that the exact implementation and usage of the "hasEventListener" property may vary depending on the library or framework you are using. Some libraries provide this functionality as part of their API, while others do not. If you are working with a specific library, it is best to consult the documentation for that library to learn how to use the "hasEventListener" property.
 
-* **hasEventListener**
+* **removeEventListener**
+
     is a method used in JavaScript to remove an event listener from an element.
 
     In JavaScript, events are notifications that are sent to your script when certain things happen in the web page, such as a user clicking a button, a page finishing loading, or an element being updated. Event listeners are functions that are called when an event occurs, allowing you to respond to the event and take some action.
@@ -85,6 +86,7 @@ ________________________________________________________________________________
     It is important to remove event listeners that you no longer need, as leaving them attached can lead to memory leaks and other performance issues. Additionally, removing event listeners can help to keep your code organized and easy to maintain.
 
 * **dispatchEvent**
+
     is a method used in JavaScript to manually trigger an event on an element.
 
     In JavaScript, events are notifications that are sent to your script when certain things happen in the web page, such as a user clicking a button, a page finishing loading, or an element being updated. Event listeners are functions that are called when an event occurs, allowing you to respond to the event and take some action.
