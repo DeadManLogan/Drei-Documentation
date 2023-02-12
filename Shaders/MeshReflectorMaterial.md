@@ -21,6 +21,7 @@ ________________________________________________________________________________
 
     In general, you should call the "dispose" method on a MeshReflectorMaterial when you are finished using it, or when you want to replace it with another material. This will help to ensure that the resources associated with the material are cleaned up in a timely and efficient manner, and will prevent potential performance issues in your 3D application.
 &nbsp;
+&nbsp;
 * **addEventListener**
 
     is a method that is used in JavaScript to attach event listeners to an element.
