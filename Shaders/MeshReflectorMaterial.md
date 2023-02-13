@@ -106,6 +106,128 @@ ________________________________________________________________________________
 
     The "dispatchEvent" method is a powerful tool for working with events in JavaScript, and can be used in many different types of web applications, including games, interactive user interfaces, and more.
 
+* **type**
+
+    it typically refers to the type of object or component that is being represented.
+
+    In the context of the MeshReflectorMaterial component from the Drei.js library, the "type" property would indicate the type of material that is being used to render the mesh. For example, the "type" property of a MeshReflectorMaterial component would likely be set to "MeshReflectorMaterial".
+
+    Here is an example of how the "type" property might be used with the MeshReflectorMaterial component in Drei.js:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material = new MeshReflectorMaterial({
+            color: 0xff0000,
+            roughness: 0.5,
+            metalness: 0.5,
+        });
+
+        console.log(material.type); // "MeshReflectorMaterial"
+    ```
+
+    In this example, a new instance of the MeshReflectorMaterial component is created and its "type" property is logged to the console.
+
+    The exact behavior and usage of the "type" property will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js. It is always best to consult the Drei.js documentation for the most up-to-date and accurate information.
+
+* **id**
+
+    it typically refers to a unique identifier for an object or component.
+
+    In the context of the MeshReflectorMaterial component from the Drei.js library, the "id" property would likely be a unique identifier for the material that is used to render a mesh.
+
+    Here is an example of how the "id" property might be used with the MeshReflectorMaterial component in Drei.js:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material = new MeshReflectorMaterial({
+            color: 0xff0000,
+            roughness: 0.5,
+            metalness: 0.5,
+        });
+
+        console.log(material.id); // "MeshReflectorMaterial_1" (or some other unique identifier)
+    ```
+
+    In this example, a new instance of the MeshReflectorMaterial component is created and its "id" property is logged to the console. The "id" property is a unique identifier for the material, which can be used to refer to the material in other parts of the code.
+
+    The exact behavior and usage of the "id" property will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js. It is always best to consult the Drei.js documentation for the most up-to-date and accurate information.
+
+* **uuid**
+
+    it typically refers to a universally unique identifier for an object or component.
+
+    In the context of the MeshReflectorMaterial component from the Drei.js library, the "uuid" property would likely be a universally unique identifier for the material that is used to render a mesh.
+
+    Here is an example of how the "uuid" property might be used with the MeshReflectorMaterial component in Drei.js:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material = new MeshReflectorMaterial({
+            color: 0xff0000,
+            roughness: 0.5,
+            metalness: 0.5,
+        });
+
+        console.log(material.uuid); // "7ddd0a48-7074-4f1d-a3b3-3328fbeab59b" (or some other universally unique identifier)
+    ```
+
+    In this example, a new instance of the MeshReflectorMaterial component is created and its "uuid" property is logged to the console. The "uuid" property is a universally unique identifier for the material, which can be used to refer to the material in other parts of the code or across different systems.
+
+    The exact behavior and usage of the "uuid" property will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js. It is always best to consult the Drei.js documentation for the most up-to-date and accurate information.
+
+* **name**
+
+    it typically refers to a human-readable string that can be used to identify an object or component.
+
+    In the context of the MeshReflectorMaterial component from the Drei.js library, the "name" property would likely be a string that can be used to identify the material that is used to render a mesh.
+
+    Here is an example of how the "name" property might be used with the MeshReflectorMaterial component in Drei.js:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material = new MeshReflectorMaterial({
+            color: 0xff0000,
+            roughness: 0.5,
+            metalness: 0.5,
+            name: "RedMaterial",
+        });
+
+        console.log(material.name); // "RedMaterial"
+    ```
+
+    In this example, a new instance of the MeshReflectorMaterial component is created and its "name" property is set to "RedMaterial". The "name" property is a string that can be used to identify the material, which can be helpful for organizing and managing materials in larger projects.
+
+    The exact behavior and usage of the "name" property will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js. It is always best to consult the Drei.js documentation for the most up-to-date and accurate information.
+
+* **visible**
+
+    it typically refers to a boolean value that determines whether an object or component should be visible or not.
+
+    In the context of the MeshReflectorMaterial component from the Drei.js library, the "visible" property would likely be a boolean value that determines whether the material that is used to render a mesh should be visible or not.
+
+    Here is an example of how the "visible" property might be used with the MeshReflectorMaterial component in Drei.js:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material = new MeshReflectorMaterial({
+            color: 0xff0000,
+            roughness: 0.5,
+            metalness: 0.5,
+            visible: false,
+        });
+
+        console.log(material.visible); // false
+    ```
+
+    In this example, a new instance of the MeshReflectorMaterial component is created and its "visible" property is set to false. The "visible" property is a boolean value that determines whether the material should be visible or not. If the "visible" property is set to false, the mesh that uses this material will not be visible.
+
+    The exact behavior and usage of the "visible" property will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js. It is always best to consult the Drei.js documentation for the most up-to-date and accurate information.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
