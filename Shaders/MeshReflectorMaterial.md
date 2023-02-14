@@ -303,6 +303,36 @@ ________________________________________________________________________________
 
     The exact behavior and usage of the "clone" property will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js. It is always best to consult the Drei.js documentation for the most up-to-date and accurate information.
 
+* **copy**
+
+    it typically refers to a method that creates a new instance of an object or component that is a copy of an existing instance.
+
+    In the context of the MeshReflectorMaterial component from the Drei.js library, the "copy" property would likely be a method that creates a new instance of the material that is a copy of the existing material. This method can be useful for creating new materials with the same properties as an existing material.
+
+    Here is an example of how the "copy" property might be used with the MeshReflectorMaterial component in Drei.js:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material1 = new MeshReflectorMaterial({
+            color: 0xff0000,
+            roughness: 0.5,
+            metalness: 0.5,
+        });
+
+        const material2 = material1.copy();
+
+        console.log(material1 === material2); // false
+    ```
+
+    In this example, a new instance of the MeshReflectorMaterial component is created (material1), and then the "copy" property is used to create a new instance of the material that is a copy of material1 (material2). The two instances are then compared, and it is demonstrated that they are not the same instance, but are instead separate instances with the same properties.
+
+    The exact behavior and usage of the "copy" property will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js. It is always best to consult the Drei.js documentation for the most up-to-date and accurate information.
+
+* **opacity**
+
+    it controls the transparency level of the material, where a value of 0 is completely transparent and a value of 1 is completely opaque.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
