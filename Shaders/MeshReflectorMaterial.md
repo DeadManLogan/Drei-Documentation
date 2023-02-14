@@ -228,6 +228,81 @@ ________________________________________________________________________________
 
     The exact behavior and usage of the "visible" property will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js. It is always best to consult the Drei.js documentation for the most up-to-date and accurate information.
 
+* **userData**
+
+    it typically refers to a boolean value that determines whether an object or component should be visible or not.
+
+    In the context of the MeshReflectorMaterial component from the Drei.js library, the "visible" property would likely be a boolean value that determines whether the material that is used to render a mesh should be visible or not.
+
+    Here is an example of how the "visible" property might be used with the MeshReflectorMaterial component in Drei.js:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material = new MeshReflectorMaterial({
+            color: 0xff0000,
+            roughness: 0.5,
+            metalness: 0.5,
+            visible: false,
+        });
+
+        console.log(material.visible); // false
+    ```
+
+    In this example, a new instance of the MeshReflectorMaterial component is created and its "visible" property is set to false. The "visible" property is a boolean value that determines whether the material should be visible or not. If the "visible" property is set to false, the mesh that uses this material will not be visible.
+
+    The exact behavior and usage of the "visible" property will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js. It is always best to consult the Drei.js documentation for the most up-to-date and accurate information.
+
+* **toJSON**
+
+    it typically refers to a method that returns a JSON representation of an object or component.
+
+    In the context of the MeshReflectorMaterial component from the Drei.js library, the "toJSON" property would likely be a method that returns a JSON representation of the material. This method can be useful for serializing the material and storing its state, or for transmitting the material information over a network.
+
+    Here is an example of how the "toJSON" property might be used with the MeshReflectorMaterial component in Drei.js:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material = new MeshReflectorMaterial({
+            color: 0xff0000,
+            roughness: 0.5,
+            metalness: 0.5,
+        });
+
+        console.log(material.toJSON());
+    ```
+
+    In this example, a new instance of the MeshReflectorMaterial component is created, and its "toJSON" property is called to get a JSON representation of the material. The exact format of the JSON data will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js.
+
+    The exact behavior and usage of the "toJSON" property will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js. It is always best to consult the Drei.js documentation for the most up-to-date and accurate information.
+
+* **clone**
+
+    it typically refers to a method that creates a new instance of an object or component that is a copy of an existing instance.
+
+    In the context of the MeshReflectorMaterial component from the Drei.js library, the "clone" property would likely be a method that creates a new instance of the material that is a copy of the existing material. This method can be useful for creating new materials with the same properties as an existing material.
+
+    Here is an example of how the "clone" property might be used with the MeshReflectorMaterial component in Drei.js:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material1 = new MeshReflectorMaterial({
+            color: 0xff0000,
+            roughness: 0.5,
+            metalness: 0.5,
+        });
+
+        const material2 = material1.clone();
+
+        console.log(material1 === material2); // false
+    ```
+
+    In this example, a new instance of the MeshReflectorMaterial component is created (material1), and then the "clone" property is used to create a new instance of the material that is a copy of material1 (material2). The two instances are then compared, and it is demonstrated that they are not the same instance, but are instead separate instances with the same properties.
+
+    The exact behavior and usage of the "clone" property will depend on the specific implementation of the MeshReflectorMaterial component in Drei.js. It is always best to consult the Drei.js documentation for the most up-to-date and accurate information.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
