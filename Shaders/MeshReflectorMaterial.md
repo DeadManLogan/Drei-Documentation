@@ -410,6 +410,26 @@ ________________________________________________________________________________
 
     In this example, the material is configured to render both the front and back faces of the associated ***Geometry***. Note that rendering both faces can be more computationally expensive than rendering only one face, and may affect the performance of your scene.
 
+* **blending**
+
+    it determines how the material is blended with the background when rendered.
+
+    It is an enumeration of the ***THREE*** library, which can take any of the following values:
+
+    ***THREE.NoBlending***: This is the default value, which means that the material is not blended with the background.
+
+    ***THREE.NormalBlending***: This blends the material with the background using the normal blend equation.
+
+    ***THREE.AdditiveBlending***: This blends the material with the background using the additive blend equation.
+
+    ***THREE.SubtractiveBlending***: This blends the material with the background using the subtractive blend equation.
+
+    ***THREE.MultiplyBlending***: This blends the material with the background using the multiply blend equation.
+
+    ***THREE.CustomBlending***: This allows for a custom blend function to be specified using the ***blendSrc***, ***blendDst***, ***blendSrcAlpha***, and ***blendDstAlpha*** properties.
+
+    The ***blending*** property is often used to create transparent materials or to simulate lighting effects.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
