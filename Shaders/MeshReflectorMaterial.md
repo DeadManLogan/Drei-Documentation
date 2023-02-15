@@ -333,6 +333,18 @@ ________________________________________________________________________________
 
     it controls the transparency level of the material, where a value of 0 is completely transparent and a value of 1 is completely opaque.
 
+* **blur**
+
+    in 3D graphics, the term "blur" typically refers to a post-processing effect that simulates the way that objects appear out of focus when viewed through a camera lens. This effect is also known as depth of field.
+
+* **resolution**
+
+    is used to control the resolution of the material's texture. Specifically, it determines the size of the texture buffer used for rendering the reflection.
+
+    The resolution property is an object with two properties: x and y, which specify the width and height of the texture buffer, respectively. The default value of resolution is {x: 256, y: 256}.
+
+    You can adjust the resolution property to increase or decrease the quality of the reflection effect. Higher values of x and y will result in a sharper and more detailed reflection, but may impact performance, especially on low-end devices. Lower values of x and y will result in a less detailed reflection, but may improve performance.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
