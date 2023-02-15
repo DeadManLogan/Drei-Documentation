@@ -345,6 +345,26 @@ ________________________________________________________________________________
 
     You can adjust the resolution property to increase or decrease the quality of the reflection effect. Higher values of x and y will result in a sharper and more detailed reflection, but may impact performance, especially on low-end devices. Lower values of x and y will result in a less detailed reflection, but may improve performance.
 
+* **color**
+
+    is used to specify the color of the material. It is a THREE.Color instance, which represents a color value as a combination of red, green, and blue components.
+
+    You can set the color property to any valid color value, including a CSS-style color string (e.g. "red", "#ff0000", or "rgb(255, 0, 0)"), a hexadecimal value (e.g. 0xff0000), or a THREE.Color instance.
+
+    For example, to set the color property of a MeshReflectorMaterial instance to red, you can do:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+        import * as THREE from 'three';
+
+        const material = new MeshReflectorMaterial({
+            color: new THREE.Color('red'),
+            // ... other options
+        });
+    ```
+
+    Note that the color property only affects the appearance of the reflection, not the underlying geometry of the material.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
