@@ -384,6 +384,32 @@ ________________________________________________________________________________
 
     Setting depthWrite to false can be useful in certain situations, such as when rendering transparent materials or when you want to create special effects that require multiple passes of the renderer. However, be careful when using this property, as it can affect the visual quality and performance of your scene.
 
+* **side**
+
+    is used to specify which side of the material should be rendered.
+
+    In three.js, each ***Material*** object can be configured to render either the front face, the back face, or both faces of the associated ***Geometry***. This is important for rendering objects with non-closed geometries, such as planes or cylinders, where the back faces may be visible depending on the camera position.
+
+    The ***side*** property can be set to one of the following values:
+
+    ***THREE.FrontSide***: Only render the front face of the material.
+    ***THREE.BackSide***: Only render the back face of the material.
+    ***THREE.DoubleSide***: Render both the front and back faces of the material.
+
+    By default, the ***side*** property of ***MeshReflectorMaterial*** is set to ***THREE.FrontSide***, which means that only the front face of the material will be rendered. You can set it to a different value when creating a new material, like this:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+        import * as THREE from 'three';
+
+        const material = new MeshReflectorMaterial({
+            // ... other options
+            side: THREE.DoubleSide,
+        });
+    ```
+
+    In this example, the material is configured to render both the front and back faces of the associated ***Geometry***. Note that rendering both faces can be more computationally expensive than rendering only one face, and may affect the performance of your scene.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
