@@ -341,17 +341,17 @@ ________________________________________________________________________________
 
     is used to control the resolution of the material's texture. Specifically, it determines the size of the texture buffer used for rendering the reflection.
 
-    The resolution property is an object with two properties: x and y, which specify the width and height of the texture buffer, respectively. The default value of resolution is {x: 256, y: 256}.
+    The ***resolution*** property is an object with two properties: ***x*** and ***y***, which specify the width and height of the texture buffer, respectively. The default value of ***resolution*** is ***{x: 256, y: 256}***.
 
-    You can adjust the resolution property to increase or decrease the quality of the reflection effect. Higher values of x and y will result in a sharper and more detailed reflection, but may impact performance, especially on low-end devices. Lower values of x and y will result in a less detailed reflection, but may improve performance.
+    You can adjust the ***resolution*** property to increase or decrease the quality of the reflection effect. Higher values of x and y will result in a sharper and more detailed reflection, but may impact performance, especially on low-end devices. Lower values of ***x*** and ***y*** will result in a less detailed reflection, but may improve performance.
 
 * **color**
 
-    is used to specify the color of the material. It is a THREE.Color instance, which represents a color value as a combination of red, green, and blue components.
+    is used to specify the color of the material. It is a ***THREE.Color*** instance, which represents a color value as a combination of red, green, and blue components.
 
-    You can set the color property to any valid color value, including a CSS-style color string (e.g. "red", "#ff0000", or "rgb(255, 0, 0)"), a hexadecimal value (e.g. 0xff0000), or a THREE.Color instance.
+    You can set the ***color*** property to any valid color value, including a CSS-style color string (e.g. ***"red"***, ***"#ff0000"***, or ***"rgb(255, 0, 0)"***), a hexadecimal value (e.g. ***0xff0000***), or a ***THREE.Color*** instance.
 
-    For example, to set the color property of a MeshReflectorMaterial instance to red, you can do:
+    For example, to set the ***color*** property of a ***MeshReflectorMaterial*** instance to red, you can do:
 
     ```js
         import { MeshReflectorMaterial } from 'drei';
@@ -363,15 +363,15 @@ ________________________________________________________________________________
         });
     ```
 
-    Note that the color property only affects the appearance of the reflection, not the underlying geometry of the material.
+    Note that the ***color*** property only affects the appearance of the reflection, not the underlying geometry of the material.
 
 * **depthWrite**
 
-    is a boolean value that indicates whether or not the material should write to the depth buffer when rendered. When depthWrite is set to false, the material will not write to the depth buffer, allowing other objects behind it to be visible.
+    is a boolean value that indicates whether or not the material should write to the depth buffer when rendered. When ***depthWrite*** is set to ***false***, the material will not write to the depth buffer, allowing other objects behind it to be visible.
 
-    The depth buffer is used by the renderer to determine which objects should be visible and which should be hidden based on their distance from the camera. When depthWrite is set to true, the material will write to the depth buffer, which means that it will be considered in the visibility calculation, and other objects that are behind it may be occluded.
+    The depth buffer is used by the renderer to determine which objects should be visible and which should be hidden based on their distance from the camera. When ***depthWrite*** is set to ***true***, the material will write to the depth buffer, which means that it will be considered in the visibility calculation, and other objects that are behind it may be occluded.
 
-    By default, depthWrite is set to true. If you want to prevent the material from writing to the depth buffer, you can set it to false, like this:
+    By default, ***depthWrite*** is set to ***true***. If you want to prevent the material from writing to the depth buffer, you can set it to ***false***, like this:
 
     ```js
         import { MeshReflectorMaterial } from 'drei';
@@ -382,7 +382,7 @@ ________________________________________________________________________________
         });
     ```
 
-    Setting depthWrite to false can be useful in certain situations, such as when rendering transparent materials or when you want to create special effects that require multiple passes of the renderer. However, be careful when using this property, as it can affect the visual quality and performance of your scene.
+    Setting ***depthWrite*** to ***false*** can be useful in certain situations, such as when rendering transparent materials or when you want to create special effects that require multiple passes of the renderer. However, be careful when using this property, as it can affect the visual quality and performance of your scene.
 
 * **side**
 
