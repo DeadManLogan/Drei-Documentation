@@ -365,6 +365,25 @@ ________________________________________________________________________________
 
     Note that the color property only affects the appearance of the reflection, not the underlying geometry of the material.
 
+* **depthWrite**
+
+    is a boolean value that indicates whether or not the material should write to the depth buffer when rendered. When depthWrite is set to false, the material will not write to the depth buffer, allowing other objects behind it to be visible.
+
+    The depth buffer is used by the renderer to determine which objects should be visible and which should be hidden based on their distance from the camera. When depthWrite is set to true, the material will write to the depth buffer, which means that it will be considered in the visibility calculation, and other objects that are behind it may be occluded.
+
+    By default, depthWrite is set to true. If you want to prevent the material from writing to the depth buffer, you can set it to false, like this:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material = new MeshReflectorMaterial({
+            // ... other options
+            depthWrite: false,
+        });
+    ```
+
+    Setting depthWrite to false can be useful in certain situations, such as when rendering transparent materials or when you want to create special effects that require multiple passes of the renderer. However, be careful when using this property, as it can affect the visual quality and performance of your scene.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
