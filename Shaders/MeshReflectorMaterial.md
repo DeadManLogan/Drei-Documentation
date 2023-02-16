@@ -430,6 +430,32 @@ ________________________________________________________________________________
 
     The ***blending*** property is often used to create transparent materials or to simulate lighting effects.
 
+* **toneMapped**
+
+    is a boolean value that specifies whether or not the material's colors should be tone-mapped.
+
+    Tone-mapping is a process that maps high dynamic range (HDR) colors to low dynamic range (LDR) colors for display on standard monitors. This is necessary because most monitors cannot display the full range of brightness values that can be represented in HDR images.
+
+    When ***toneMapped*** is set to ***true***, the material's colors will be tone-mapped using the tone-mapping function specified by the renderer's ***toneMapping*** property. When ***toneMapped*** is set to ***false***, the material's colors will not be tone-mapped.
+
+    Note that if you are using the ***MeshReflector*** component from the drei library, you should set the ***toneMapped*** property of its material to ***false*** in order to avoid issues with reflections appearing too bright.
+
+* **transparent**
+
+    is a boolean value that specifies whether or not the material is transparent.
+
+    When ***transparent*** is set to ***true***, the material's opacity can be set to a value less than 1 using the ***opacity*** property. This allows the material to be partially see-through, which can be useful for creating effects like stained glass or water.
+
+    If ***transparent*** is set to ***false***, the material will be completely opaque and the ***opacity*** property will have no effect.
+
+    Note that when using transparent materials, you may need to set the ***depthWrite*** property to ***false*** in order to avoid z-fighting issues. Z-fighting occurs when two objects are rendered at almost the same depth and the renderer is unable to determine which one should be in front. Setting ***depthWrite*** to ***false*** disables depth writing for the material, which can help to reduce z-fighting.
+
+* **vertexColors**
+    
+    is used to specify whether the material uses per-vertex coloring or not. If the value is set to ***THREE.NoColors***, the material ignores any vertex colors. If the value is set to ***THREE.VertexColors***, the material uses the vertex colors for coloration. By default, ***vertexColors*** is set to ***THREE.NoColors***.
+
+    In three.js, vertex colors can be defined for a geometry by setting the ***color*** attribute of the geometry. Each vertex in the geometry can have a different color. The ***vertexColors*** property of a material determines whether or not to use these vertex colors in the rendering of the material. If ***vertexColors*** is set to ***THREE.VertexColors***, then the vertex colors will be used to color the geometry.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
