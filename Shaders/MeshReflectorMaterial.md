@@ -456,6 +456,26 @@ ________________________________________________________________________________
 
     In three.js, vertex colors can be defined for a geometry by setting the ***color*** attribute of the geometry. Each vertex in the geometry can have a different color. The ***vertexColors*** property of a material determines whether or not to use these vertex colors in the rendering of the material. If ***vertexColors*** is set to ***THREE.VertexColors***, then the vertex colors will be used to color the geometry.
 
+* **alphaToCoverage**
+
+    is a boolean that determines whether or not to enable alpha to coverage. Alpha to coverage is a technique that is used in computer graphics to improve the visual quality of transparency in images with rough or jagged edges.
+
+    When ***alphaToCoverage*** is enabled, it works by using the alpha value of the pixels in the image to determine how many samples of that pixel should be covered. This can help to produce smoother edges and prevent jagged lines and other artifacts that may appear when using transparent materials in a scene.
+
+    The ***alphaToCoverage*** property is used in conjunction with other properties of the material, such as the ***opacity*** and ***transparent*** properties, to achieve the desired visual effect.
+
+* **wireframe**
+
+    is a boolean that determines whether or not the material should be rendered as a wireframe. When this property is set to ***true***, the material will be rendered as a wireframe, which means that only the edges of the triangles that make up the mesh will be drawn. When this property is set to ***false*** (which is the default), the material will be rendered normally, with filled triangles. The wireframe rendering mode can be useful for debugging or for creating certain artistic effects.
+
+* **alphaTest**
+
+    is a numerical value between 0 and 1 that determines the minimum alpha value that a pixel must have in order to be rendered.
+
+    If the alpha value of the pixel is less than the specified ***alphaTest*** value, the pixel is not rendered, effectively creating a transparent effect.
+
+    This property is commonly used for textures with transparent areas, where the goal is to render only the opaque areas of the texture while leaving the transparent areas invisible. By setting the ***alphaTest*** value to a threshold slightly above 0, it is possible to achieve this effect.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
