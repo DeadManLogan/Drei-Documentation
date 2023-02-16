@@ -476,6 +476,36 @@ ________________________________________________________________________________
 
     This property is commonly used for textures with transparent areas, where the goal is to render only the opaque areas of the texture while leaving the transparent areas invisible. By setting the ***alphaTest*** value to a threshold slightly above 0, it is possible to achieve this effect.
 
+* **blendDst**
+
+    is used to set the destination blending factor for the material.
+
+    In three.js, blending is used to control how transparent objects are rendered when they overlap with each other. The ***blendDst***property sets the blending destination factor, which determines how the output color is combined with the background color.
+
+    The ***blendDst*** property of the ***MeshReflectorMaterial*** component can be set to one of the blending factors defined in the ***THREE*** object, such as ***THREE.OneMinusSrcAlphaFactor***, ***THREE.DstAlphaFactor***, ***THREE.DstColorFactor***, and so on. The default value of the ***blendDst*** property is ***THREE.OneMinusSrcAlphaFactor***.
+
+* **blendDstAlpha**
+
+    is a property that defines the destination alpha factor for the material's blend equation. This property is used in conjunction with the ***blendEquation*** and ***blendSrcAlpha*** properties to control how the material's color and transparency are blended with the underlying pixels in the scene.
+
+    The ***blendDstAlpha*** property is a numerical value that represents the weight or intensity of the destination alpha factor. It ranges from 0 to 1, with 0 representing a fully transparent alpha channel and 1 representing a fully opaque alpha channel. The default value of this property is 1.
+
+* **blendEquation**
+
+    is a property that determines the mathematical operation used to combine the source and destination colors during blending.
+
+    In the context of WebGL and Three.js, blending refers to the process of combining the color of a pixel in the output image with the color of the pixel already present in the same location. The ***blendEquation*** property is used to set the type of operation used for this process.
+
+    The ***blendEquation*** property of the ***MeshReflectorMaterial*** can take one of the following constants as its value:
+
+    * ***AddEquation***: The source and destination colors are added together.
+    * ***SubtractEquation***: The destination color is subtracted from the source color.
+    * ***ReverseSubtractEquation***: The source color is subtracted from the destination color.
+    * ***MinEquation***: The minimum of the source and destination colors is used.
+    * ***MaxEquation***: The maximum of the source and destination colors is used.
+
+    By default, the ***blendEquation*** property of the ***MeshReflectorMaterial*** is set to ***AddEquation***.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
