@@ -506,6 +506,44 @@ ________________________________________________________________________________
 
     By default, the ***blendEquation*** property of the ***MeshReflectorMaterial*** is set to ***AddEquation***.
 
+* **blendEquationAlpha**
+
+    is used to set the equation used for blending the alpha component of the source and destination colors.
+
+    In three.js, blending is a way to combine transparent objects with the background. Blending is determined by two factors: the blend function and the blend equation. The blend function determines how the source and destination colors are combined, while the blend equation determines how the result of the blend function is combined with the background color.
+
+    The ***blendEquationAlpha*** property sets the blend equation used for the alpha component. The possible values are:
+
+    * ***AddEquationAlpha***: Add the source alpha component to the destination alpha component.
+    * ***SubtractEquationAlpha***: Subtract the source alpha component from the destination alpha component.
+    * ***ReverseSubtractEquationAlpha***: Subtract the destination alpha component from the source alpha component.
+    * ***MinEquationAlpha***: Use the minimum of the source and destination alpha components.
+    * ***MaxEquationAlpha***: Use the maximum of the source and destination alpha components.
+
+    By default, the ***blendEquationAlpha*** property is set to ***AddEquationAlpha***.
+
+* **blendSrc**
+
+    is a property that determines how the material's color should be blended with the existing color in the scene when the material is rendered.
+
+    The value of ***blendSrc*** property is a constant that defines the blending factor for the source color (the color of the material being rendered). Some possible values for ***blendSrc*** include:
+
+    * ***THREE.ZeroFactor***: The source color is not blended with the existing color in the scene.
+    * ***THREE.OneFactor***: The source color is completely blended with the existing color in the scene.
+    * ***THREE.SrcAlphaFactor***: The source color's alpha channel is used as the blending factor.
+    * ***THREE.DstAlphaFactor***: The existing color's alpha channel is used as the blending factor.
+    * ***THREE.OneMinusSrcAlphaFactor***: The inverse of the source color's alpha channel is used as the blending factor.
+
+    The ***blendSrc*** property works in conjunction with the ***blendDst*** property to determine the final blending of colors during rendering.
+
+* **blendSrcAlpha**
+
+    it specifies the alpha value to be used as the source factor in the alpha blending equation. This property works in conjunction with the ***blendDstAlpha*** property, which specifies the alpha value to be used as the destination factor.
+
+    In alpha blending, the source factor specifies how much of the source color to use, and the destination factor specifies how much of the destination color to use. The alpha values of the source and destination colors are also used in the blending equation.
+
+    The ***blendSrcAlpha*** property is set to ***null*** by default, which means that the value of the ***blendSrc*** property is used for the alpha blending equation. If you want to use a different value for the source alpha factor, you can set the ***blendSrcAlpha*** property to a different value.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
