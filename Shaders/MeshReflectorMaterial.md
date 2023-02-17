@@ -544,6 +544,12 @@ ________________________________________________________________________________
 
     The ***blendSrcAlpha*** property is set to ***null*** by default, which means that the value of the ***blendSrc*** property is used for the alpha blending equation. If you want to use a different value for the source alpha factor, you can set the ***blendSrcAlpha*** property to a different value.
 
+* **clipIntersection**
+
+    is a property in three.js that controls whether the material should be clipped when intersecting with other objects in the scene. When set to ***true***, the material will be clipped based on its intersection with other objects, and when set to ***false***, the material will not be clipped at its intersections.
+
+    This property can be set on any material in three.js that inherits from ***Material***, such as ***MeshBasicMaterial***, ***MeshLambertMaterial***, ***MeshPhongMaterial***, and others.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
