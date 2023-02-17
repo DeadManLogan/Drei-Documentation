@@ -552,6 +552,121 @@ ________________________________________________________________________________
 
     This property can be set on any material in three.js that inherits from ***Material***, such as ***MeshBasicMaterial***, ***MeshLambertMaterial***, ***MeshPhongMaterial***, and others.
 
+* **clippingPlanes**
+
+    is used to specify an array of clipping planes to be used when rendering the material. Clipping planes are used to define a region of space in which objects will be visible or hidden.
+
+    The ***clippingPlanes*** property is an array of ***THREE.Plane*** objects that define the clipping planes. The planes are defined in object space, and will be transformed into world space by the renderer when the material is rendered.
+
+    For example, to create a ***MeshReflectorMaterial*** that uses a single clipping plane, you could use the following code:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+        import * as THREE from 'three';
+
+        const material = new MeshReflectorMaterial({
+            clippingPlanes: [new THREE.Plane(new THREE.Vector3(0, 1, 0), 0)]
+        });
+    ```
+
+    In this example, a single clipping plane is created that lies in the ***x-y*** plane (the normal vector is ***[0, 1, 0]***) and passes through the origin (the distance is ***0***).
+
+* **clipShadows**
+
+    it is actually a property of the ***MeshStandardMaterial*** class in the three.js library.
+
+    The ***clipShadows*** property is a boolean value that indicates whether the material should be clipped against shadows. When set to ***true***, the material is clipped against shadows cast by other objects in the scene, resulting in a more realistic and accurate rendering of shadows.
+
+    When ***clipShadows*** is set to ***true***, the material is excluded from the calculation of shadows, making the rendering more efficient. However, this can result in artifacts when the material is intersecting with shadow volumes.
+
+    Here is an example of how to set the ***clipShadows*** property in three.js:
+
+    ```js
+        const material = new THREE.MeshStandardMaterial({
+            color: 0xff0000,
+            roughness: 0.5,
+            metalness: 0.5,
+            clipShadows: true, // enable shadow clipping
+        });
+    ```
+
+* **colorWrite**
+
+    controls whether the material writes to the color buffer. If set to ***false***, the material will not write any color to the buffer. If set to ***true*** (the default value), the material will write its color to the buffer.
+
+    This property is inherited from ***THREE.Material***, which is the base class for all materials in the Three.js library. It is used to optimize rendering performance, by allowing materials to skip writing color data to the color buffer when it is not needed.
+
+* **defines**
+
+    is an object that contains a set of preprocessor macros used during the shader compilation process. These macros define constants and variables that can be used in the shader code.
+
+    The ***defines*** object has several properties, including:
+
+    * ***REFLECTOR***: A boolean value that indicates whether the material is a reflector material or not.
+    * ***CLIPPING***: A boolean value that indicates whether clipping planes are enabled or not.
+    * ***NUM_CLIPPING_PLANES***: An integer value that indicates the number of clipping planes.
+    * ***OVERDRAW***: A boolean value that indicates whether overdraw is enabled or not.
+
+    The ***defines*** property is used internally by ***MeshReflectorMaterial*** to generate the shader code for the material. You can customize the behavior of the material by modifying the values of the properties in the ***defines*** object.
+
+* **depthFunc**
+
+    specifies the depth comparison function used when rendering the material. It determines how the material is compared to the depth buffer to determine if it should be drawn.
+
+    The ***depthFunc*** property takes an integer value that corresponds to one of the depth comparison functions supported by WebGL. These functions include:
+
+    * ***Never***: never passes
+    * ***Less***: passes if the incoming depth value is less than the stored depth value
+    * ***Equal***: passes if the incoming depth value is equal to the stored depth value
+    * ***Lequal***: passes if the incoming depth value is less than or equal to the stored depth value
+    * ***Greater***: passes if the incoming depth value is greater than the stored depth value
+    * ***Notequal***: passes if the incoming depth value is not equal to the stored depth value
+    * ***Gequal***: passes if the incoming depth value is greater than or equal to the stored depth value
+    * ***Always***: always passes
+
+    The default value of ***depthFunc*** is ***Less***.
+
+* **depthTest**
+
+    is a boolean that indicates whether depth testing is enabled. Depth testing is a technique used in 3D graphics to ensure that objects that are closer to the camera appear in front of objects that are farther away.
+
+    When ***depthTest*** is set to ***true***, objects will be compared against the depth buffer to determine whether they are visible. If an object is behind another object that has already been drawn, it will not be drawn. If ***depthTest*** is set to ***false***, all objects will be drawn in the order they are specified in the scene, regardless of their distance from the camera.
+
+    In the case of ***MeshReflectorMaterial***, setting ***depthTest*** to ***false*** might be useful if you want to draw reflections of objects that are behind the reflecting surface. However, this can also result in incorrect rendering in some cases, so it should be used with care.
+
+* **polygonOffset**
+
+    is used to specify a ***Vector2*** representing the polygon offset factor and units for the material. The polygon offset is used to prevent z-fighting when rendering overlapping polygons by slightly offsetting the depth of the polygons. This can be useful when rendering materials that have the same depth values and are overlapping.
+
+    In ***MeshReflectorMaterial***, the ***polygonOffset*** property is an optional property that can be used to create a new instance of the material with the specified polygon offset settings. Here is an example:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material = new MeshReflectorMaterial({
+            color: 'red',
+            polygonOffset: true,
+            polygonOffsetFactor: 1,
+            polygonOffsetUnits: 1
+        });
+    ```
+
+    In this example, the ***polygonOffset*** property is set to ***true*** to enable the polygon offset feature, and the ***polygonOffsetFactor*** and ***polygonOffsetUnits*** properties are set to 1 to specify the offset factor and units.
+
+* **polygonOffsetFactor**
+
+    it sets the value used to create a ***polygonOffset*** for polygons being rendered. It is used to avoid "z-fighting" artifacts, where two polygons are coplanar or almost coplanar, and as a result, the depth buffer cannot correctly determine which polygon to draw in front.
+
+    The ***polygonOffsetFactor*** property is a float value that determines the factor by which to multiply the maximum depth slope in order to create the polygon offset. A positive value pushes the polygons closer to the camera, while a negative value pushes them farther away.
+
+* **polygonOffsetUnits**
+
+    is a float value that represents the amount by which the depth value is offset for polygons that are coplanar. It is used to prevent z-fighting (or "depth fighting") between polygons that are at the same depth in the scene.
+
+    When ***polygonOffset*** is enabled, the depth value for a polygon is offset by ***polygonOffsetFactor * DZ + polygonOffsetUnits * r***, where ***DZ*** is the change in depth caused by projecting the polygon onto the screen, ***r*** is the smallest value that is guaranteed to produce a resolvable difference in depth values, and ***polygonOffsetFactor*** and ***polygonOffsetUnits*** are user-defined values.
+
+    In ***MeshReflectorMaterial***, ***polygonOffset*** is disabled by default, and the ***polygonOffsetFactor*** and ***polygonOffsetUnits*** properties are set to 0.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
