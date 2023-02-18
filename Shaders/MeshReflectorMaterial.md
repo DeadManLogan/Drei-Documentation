@@ -691,6 +691,47 @@ ________________________________________________________________________________
 
     The ***forceSinglePass*** property in ***MeshReflectorMaterial*** allows developers to choose between these techniques, regardless of whether the device supports multi-pass rendering or not. This can be useful in situations where the scene is simple enough that single-pass rendering is sufficient, or where multi-pass rendering is not performing well on a particular device.
 
+* **dithering**
+
+    is a boolean value that specifies whether or not to apply dithering to the material.
+
+    Dithering is a technique used to reduce banding artifacts in images with limited color depth or when transitioning from one color to another. It adds noise to the image to simulate more colors than are actually present, which can help smooth out transitions and make them appear more natural.
+
+    In the context of the ***MeshReflectorMaterial*** component, setting the ***dithering*** property to ***true*** can help to reduce visual artifacts and improve the overall quality of the reflected image.
+
+* **shadowSide**
+
+    it is a property of the ***MeshReflectorMaterial*** component from the Drei library in Three.js.
+
+    The ***shadowSide*** property determines which faces of the mesh will be used to cast shadows. The possible values for the ***shadowSide*** property are:
+
+    * ***null***: The material will cast shadows from both sides of the mesh.
+    * ***Three.FrontSide***: Only the front faces of the mesh will cast shadows.
+    * ***Three.BackSide***: Only the back faces of the mesh will cast shadows.
+    * ***Three.DoubleSide***: Both the front and back faces of the mesh will cast shadows.
+
+    By default, the ***shadowSide*** property is set to ***null***, which means that shadows will be cast from both sides of the mesh.
+
+* **stencilWrite**
+
+    is a boolean value that determines whether the material writes to the stencil buffer when rendering. The ***MeshReflectorMaterial*** component from the drei library is a custom material that extends the built-in ***ShaderMaterial*** in Three.js, and it allows for creating a reflective surface by rendering the reflected objects in a separate render pass and using a stencil buffer to mask out the areas where the reflective surface should be visible.
+
+    In the context of ***MeshReflectorMaterial***, the ***stencilWrite*** property controls whether the material writes to the stencil buffer during the reflection pass. When set to ***true***, the material will write to the stencil buffer and mark the pixels where the reflection should be visible. When set to ***false***, the material will not write to the stencil buffer, and the reflection will not be visible.
+
+    Here's an example of how the ***stencilWrite*** property can be used with ***MeshReflectorMaterial***:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material = new MeshReflectorMaterial({
+            color: 'white',
+            stencilWrite: true,
+            ...
+        });
+    ```
+
+    In this example, the ***stencilWrite*** property is set to ***true***, which means that the material will write to the stencil buffer during the reflection pass. This will allow the reflection to be visible only in the areas where the stencil buffer is marked.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
