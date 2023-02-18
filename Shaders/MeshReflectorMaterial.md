@@ -732,6 +732,26 @@ ________________________________________________________________________________
 
     In this example, the ***stencilWrite*** property is set to ***true***, which means that the material will write to the stencil buffer during the reflection pass. This will allow the reflection to be visible only in the areas where the stencil buffer is marked.
 
+* **stencilFunc**
+
+    is a WebGL rendering context property used to set the function used to compare stencil values to the reference value.
+
+    The ***stencilFunc*** property takes three arguments:
+
+    * ***stencilFunc(func: number, ref: number, mask: number)***: a method that sets the function used to compare stencil values to the reference value.
+
+    The three arguments are:
+
+    * ***func***: an enumeration specifying the comparison function. It can be one of the following values: Never, Less, Equal, LEqual, Greater, NotEqual, GEqual, and Always.
+    * ***ref***: an integer reference value for the stencil test.
+    * ***mask***: an integer bit mask that is ANDed with both the reference value and the stored stencil value when the test is performed.
+
+    In summary, the ***stencilFunc*** property is used to determine if a fragment should be drawn based on the comparison of its stencil value with the reference value. It is commonly used for techniques like stencil shadows or masking.
+
+* **stencilRef**
+
+    is a value used in stencil testing to determine whether or not a pixel is drawn. Stencil testing is a technique used to limit the area of rendering by checking if the fragment's stencil value is the same as a reference value. This allows for a wide range of effects such as creating cutouts, highlights, and selective rendering of different parts of a scene. The stencil reference value determines what value the stencil buffer is compared to during the stencil test. If the comparison is true, the pixel is drawn. Otherwise, it is discarded. The stencil reference value is set using the stencil reference property.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
