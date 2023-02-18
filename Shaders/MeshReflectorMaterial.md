@@ -667,6 +667,30 @@ ________________________________________________________________________________
 
     In ***MeshReflectorMaterial***, ***polygonOffset*** is disabled by default, and the ***polygonOffsetFactor*** and ***polygonOffsetUnits*** properties are set to 0.
 
+* **precision**
+
+    it sets the string value that specifies the shader precision. It corresponds to the ***precision*** qualifier in GLSL, which specifies the minimum precision of floating-point values used in the shader.
+
+    In three.js, the precision ***property*** is used to set the shader precision for custom materials. It is a string value that can be set to one of the following: "highp", "mediump", or "lowp", corresponding to high, medium, or low precision respectively. The default value is "highp".
+
+* **premultipliedAlpha**
+
+    it specifies whether the alpha channel of the texture is premultiplied with its color values.
+
+    In computer graphics, premultiplied alpha is a technique for compositing transparent images that improves performance and accuracy by pre-multiplying the alpha values of an image with its color values. When premultiplied alpha is used, the resulting color values are a combination of the alpha value and the color value, resulting in an image that is more accurately blended with the underlying image or background.
+
+    In the context of ***MeshReflectorMaterial***, setting ***premultipliedAlpha*** to ***true*** will cause the material to take into account premultiplied alpha when blending with the scene. This can help improve the accuracy of the reflection and improve performance by reducing the number of blending operations required.
+
+* **forceSinglePass**
+
+    is a boolean value that indicates whether the material should use a single-pass rendering technique, regardless of whether or not the device supports multi-pass rendering.
+
+    In general, multi-pass rendering is a technique used in 3D graphics that involves rendering the same scene multiple times, each time with different settings or techniques applied. For example, in order to create a reflection effect, a second pass could be used to render the reflection of an object onto a mirror surface. This can be an expensive process, as it requires rendering the scene multiple times.
+
+    In contrast, single-pass rendering involves rendering the entire scene in a single pass. This can be more efficient, as it reduces the number of times the scene needs to be rendered.
+
+    The ***forceSinglePass*** property in ***MeshReflectorMaterial*** allows developers to choose between these techniques, regardless of whether the device supports multi-pass rendering or not. This can be useful in situations where the scene is simple enough that single-pass rendering is sufficient, or where multi-pass rendering is not performing well on a particular device.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
