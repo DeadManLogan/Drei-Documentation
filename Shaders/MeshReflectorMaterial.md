@@ -785,6 +785,24 @@ ________________________________________________________________________________
 
     The default value of ***stencilFail*** is ***THREE.KeepStencilOp***.
 
+* **stencilZFail**
+
+    is used to set the stencil operation to perform when both the stencil test and the depth test fail.
+
+    Stencil operation is a term used in computer graphics to describe a set of operations that can be performed on the stencil buffer to create complex shapes or to render objects with cutouts. The stencil buffer is a buffer in the graphics card that stores integer values for each pixel of the screen. The value of the stencil buffer for a pixel is determined by the result of a comparison between the current value of the stencil buffer and a reference value, using a comparison function.
+
+    The ***stencilZFail*** property of ***MeshReflectorMaterial*** component can be set to any of the following constants:
+
+    * ***THREE.KeepStencilOp*** - Keep the current value in the stencil buffer.
+    * ***THREE.ZeroStencilOp*** - Set the stencil buffer value to zero.
+    * ***THREE.ReplaceStencilOp*** - Replace the stencil buffer value with the reference value.
+    * ***THREE.IncrementStencilOp*** - Increment the stencil buffer value.
+    * ***THREE.DecrementStencilOp*** - Decrement the stencil buffer value.
+    * ***THREE.IncrementWrapStencilOp*** - Increment the stencil buffer value, but wrap it to zero when it reaches the maximum value.
+    * ***THREE.DecrementWrapStencilOp*** - Decrement the stencil buffer value, but wrap it to the maximum value when it reaches zero.
+
+    The ***stencilZFail*** property is used in conjunction with the ***stencilFail*** and ***stencilZPass*** properties of ***MeshReflectorMaterial***.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
