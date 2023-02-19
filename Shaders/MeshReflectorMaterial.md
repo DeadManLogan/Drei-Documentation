@@ -866,6 +866,14 @@ ________________________________________________________________________________
         const materials = scene.children.filter(obj => obj.material.isMaterial);
     ```
 
+* **needsUpdate**
+
+    is a boolean value that specifies whether the material needs to be recompiled.
+
+    When this property is set to ***true***, it means that the material's state has changed and needs to be recompiled before it can be used again. This is typically used when you change one or more of the material's properties.
+
+    You can set this property to ***true*** to trigger a recompile of the material, or you can set it to ***false*** if you know that the material is up to date and does not need to be recompiled.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
