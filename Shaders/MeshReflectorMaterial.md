@@ -874,6 +874,66 @@ ________________________________________________________________________________
 
     You can set this property to ***true*** to trigger a recompile of the material, or you can set it to ***false*** if you know that the material is up to date and does not need to be recompiled.
 
+* **version**
+
+    is used to indicate the version of the material.
+
+    This property is specific to the ***drei*** library and is not part of the standard ***three.js*** material. It is a number that is incremented whenever the material's shader code or behavior is changed. This can be useful for debugging and ensuring that the correct version of the material is being used in a project.
+
+    For example, if you were to log the value of the ***version*** property before and after making a change to the material, you would be able to see whether or not the change has been picked up by the system.
+
+* **onBeforeCompile**
+
+    allows you to define a function to be executed just before the material is compiled in the shader.
+
+    This method is used to customize the material by providing additional instructions to the shader program. It takes a function as an argument, and this function will receive an instance of ***Shader*** class, which contains the vertex and fragment shader code. You can then modify the shader code as needed by adding or replacing code in the vertex and fragment shaders.
+
+    For example, you can use ***onBeforeCompile*** to add custom uniforms, modify the vertex or fragment shaders, or add custom code to any part of the shader program.
+
+    Here is an example of how to use ***onBeforeCompile*** to add a custom uniform to a ***MeshReflectorMaterial***:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const customMaterial = new MeshReflectorMaterial({
+            onBeforeCompile: (shader) => {
+                shader.uniforms.myCustomUniform = { value: 0.5 };
+
+                // Modify the fragment shader to use the custom uniform
+                shader.fragmentShader = shader.fragmentShader.replace(
+                '#include <dithering_fragment>',
+                `
+                uniform float myCustomUniform;
+
+                // Your custom code goes here
+
+                #include <dithering_fragment>
+                `
+                );
+            },
+        });
+    ```
+
+    In this example, we add a custom uniform named ***myCustomUniform*** to the material and modify the fragment shader to use this uniform. Note that we use the ***replace*** method to add our custom code just before the ***dithering_fragment code***.
+
+* **customProgramCacheKey**
+
+    is used to customize the cache key used to store compiled shader programs for the material. By default, this is a combination of the material's type, UUID, and hash code of its parameters. However, in some cases, it may be useful to override this key to allow for more fine-grained control over shader caching, for example, to cache different shader programs for different values of certain material properties.
+
+    To use ***customProgramCacheKey***, you can set it to a string that represents the custom key you want to use. When the material is compiled, this key will be used to store and retrieve the compiled shader program from the cache.
+
+    Here is an example usage of ***customProgramCacheKey***:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        const material = new MeshReflectorMaterial({
+            customProgramCacheKey: 'my-custom-key'
+        });
+    ```
+
+    In this example, the material's compiled shader program will be stored in the cache using the key "my-custom-key", instead of the default cache key.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
