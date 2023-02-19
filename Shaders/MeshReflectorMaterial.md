@@ -752,6 +752,39 @@ ________________________________________________________________________________
 
     is a value used in stencil testing to determine whether or not a pixel is drawn. Stencil testing is a technique used to limit the area of rendering by checking if the fragment's stencil value is the same as a reference value. This allows for a wide range of effects such as creating cutouts, highlights, and selective rendering of different parts of a scene. The stencil reference value determines what value the stencil buffer is compared to during the stencil test. If the comparison is true, the pixel is drawn. Otherwise, it is discarded. The stencil reference value is set using the stencil reference property.
 
+* **stencilWriteMask**
+
+    is used to set the bit mask for the stencil buffer. The stencil buffer is used to mark pixels that pass a stencil test, which can then be used for effects such as reflections or shadows. The ***stencilWriteMask*** property sets the write mask for the stencil buffer, which is a bit mask that determines which bits of the stencil buffer can be written to.
+
+    For example, setting ***stencilWriteMask*** to ***0xff*** would allow all bits of the stencil buffer to be written to, while setting it to ***0x0f*** would only allow the first four bits to be written to. By default, ***stencilWriteMask*** is set to ***0xff***, which allows all bits to be written to.
+
+* **stencilFuncMask**
+
+    is used to set the bit mask used in the stencil test for the material.
+
+    The stencil test is a rendering technique that determines whether a pixel should be drawn based on its stencil value. The stencil test can be configured using the ***stencilFunc*** property of the material. The ***stencilFuncMask*** property is used to set the bit mask that is ANDed with the stencil value and the reference value in the stencil test.
+
+    The ***stencilFuncMask*** property is a number that represents the bit mask used in the stencil test. The default value is ***0xff***, which means that all bits are used in the stencil test. You can set this property to a different value to mask out certain bits in the stencil value. For example, if you set ***stencilFuncMask*** to ***0x0f***, the stencil test will only use the lower 4 bits of the stencil value.
+
+* **stencilFail**
+
+    is used to set the stencil operation to perform if the stencil test fails.
+
+    In stencil testing, a comparison is made between the reference value (***stencilRef***) and the value in the stencil buffer for the corresponding pixel. If the comparison fails, the specified stencil operation is performed (***stencilFail***).
+
+    The ***stencilFail*** property can take one of the following values:
+
+    * ***THREE.KeepStencilOp***: Keeps the current value in the stencil buffer.
+    * ***THREE.ZeroStencilOp***: Sets the stencil buffer value to zero.
+    * ***THREE.ReplaceStencilOp***: Sets the stencil buffer value to the reference value (stencilRef).
+    * ***THREE.IncrementStencilOp***: Increments the stencil buffer value.
+    * ***THREE.IncrementWrapStencilOp***: Increments the stencil buffer value, but wraps to zero when the maximum value is reached.
+    * ***THREE.DecrementStencilOp***: Decrements the stencil buffer value.
+    * ***THREE.DecrementWrapStencilOp***: Decrements the stencil buffer value, but wraps to the maximum value when zero is reached.
+    * ***THREE.InvertStencilOp***: Bitwise inverts the stencil buffer value.
+
+    The default value of ***stencilFail*** is ***THREE.KeepStencilOp***.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
