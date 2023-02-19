@@ -803,6 +803,69 @@ ________________________________________________________________________________
 
     The ***stencilZFail*** property is used in conjunction with the ***stencilFail*** and ***stencilZPass*** properties of ***MeshReflectorMaterial***.
 
+* **stencilZPass**
+
+    is a property that defines the operation to perform on the stencil buffer when the stencil test passes and the depth test passes.
+
+    The stencil buffer is a data buffer that keeps track of which pixels have been drawn to during rendering. The stencil test compares a value in the stencil buffer to a reference value, and based on the result, decides whether to render a pixel or not.
+
+    The ***stencilZPass*** property can have one of the following values:
+
+    * ***THREE.KeepStencilOp***: keep the current value in the stencil buffer.
+    * ***THREE.ZeroStencilOp***: set the stencil buffer value to 0.
+    * ***THREE.ReplaceStencilOp***: set the stencil buffer value to the reference value.
+    * ***THREE.IncrementStencilOp***: increment the stencil buffer value.
+    * ***THREE.DecrementStencilOp***: decrement the stencil buffer value.
+    * ***THREE.IncrementWrapStencilOp***: increment the stencil buffer value, wrapping to 0 when the maximum value is reached.
+    * ***THREE.DecrementWrapStencilOp***: decrement the stencil buffer value, wrapping to the maximum value when 0 is reached.
+
+* **wireframeLinewidth**
+
+    is a numeric value that specifies the width of the wireframe lines in pixels.
+
+    When the ***wireframe*** property is set to ***true***, the object using this material will be rendered in wireframe mode, meaning that only the edges of the object will be visible. The ***wireframeLinewidth*** property determines the width of these lines.
+
+    For example, setting ***wireframeLinewidth*** to ***2*** will make the wireframe lines appear thicker and more visible. The default value is ***1***.
+
+* **fog**
+
+    is a boolean value that indicates whether or not the material should be affected by fog. If ***true***, the material will be affected by any fog in the scene, while if ***false***, the material will be fully opaque regardless of the fog settings.
+
+    Fog is a visual effect that can be added to a 3D scene to simulate atmospheric conditions like haze or mist. It works by blending the color of the scene with a color representing the fog, based on the distance of the object from the camera. The farther away an object is from the camera, the more it is affected by the fog, creating a gradual transition from clear to hazy.
+
+* **setValues**
+
+    is used to set one or more properties of the material. It takes an object as its parameter, where each property of the object corresponds to a property of the material. The values of these properties are then set to the values specified in the object.
+
+    For example, to set the ***color*** and ***metalness*** properties of a ***MeshReflectorMaterial***, you could use the ***setValues method*** like this:
+
+    ```php
+        const material = new MeshReflectorMaterial();
+        material.setValues({ color: 'red', metalness: 0.5 });
+    ```
+
+    This would set the ***color*** property of the material to 'red' and the ***metalness*** property to 0.5.
+
+* **isMaterial**
+
+    is a boolean that returns ***true*** to indicate that the object is a material. This property is part of the ***three.js*** library which is a WebGL-based 3D graphics library.
+
+    In ***three.js***, every material has an ***isMaterial*** property that is set to ***true*** by default. This property is useful for checking if an object is a material or not, especially when dealing with large and complex scenes that contain a lot of different objects.
+
+    For example, you can use the ***isMaterial*** property to check if a particular object in the scene is a material, like this:
+
+    ```js
+        if (myObject.material.isMaterial) {
+            // do something with the material
+        }
+    ```
+
+    Or, you can use it to filter out all non-material objects in the scene, like this:
+
+    ```js
+        const materials = scene.children.filter(obj => obj.material.isMaterial);
+    ```
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
