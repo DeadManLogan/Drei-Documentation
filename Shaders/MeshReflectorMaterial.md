@@ -970,6 +970,44 @@ ________________________________________________________________________________
 
     is a texture representing the ambient occlusion shading of the material. Ambient occlusion is a shading method that calculates how much each point in a scene is exposed to ambient lighting, which is light that has been scattered and reflected multiple times before reaching the point. The ***aoMap*** texture is multiplied with the base color of the material to create the final shading. The ***aoMap*** property is a ***Texture*** object and can be set to any valid texture.
 
+* **aoMapIntensity**
+
+    it specifies the intensity of the ambient occlusion map.
+
+    The ambient occlusion map is a texture that is used to add shadowing to the material, based on the proximity of surfaces to each other. The ***aoMapIntensity*** property determines how much the ambient occlusion affects the material's overall appearance, with a value of 1 being the maximum amount of influence.
+
+    A higher value for ***aoMapIntensity*** will result in a stronger shadow effect, while a lower value will make the shadows more subtle. The default value for ***aoMapIntensity*** is ***1***.
+
+* **emissive**
+
+    is a color representing the emissive color of the material. The emissive color is the color that the material appears to emit as if it were a light source.
+
+    In three.js, the emissive color is combined with the scene's lighting to produce the final color of the material. The default value of the ***emissive*** property is a black color, which means that the material does not emit any light.
+
+    Here is an example of setting the emissive color of a ***MeshReflectorMaterial***:
+
+    ```jsx
+        import { MeshReflectorMaterial } from 'drei'
+
+        // Create a new MeshReflectorMaterial with a red emissive color
+        const material = new MeshReflectorMaterial({
+            color: 0xff0000, // set the base color of the material to red
+            emissive: 0xff0000, // set the emissive color of the material to red
+        })
+    ```
+
+* **emissiveIntensity**
+
+    is a numeric value that controls the strength of the emissive map. Emissive maps are textures that add extra brightness to the material, as if it was emitting light. The emissive intensity value scales the brightness of the emissive color, with a default value of ***1.0***. A value of ***0*** will make the material not emit light at all. A value greater than ***1*** will make the material appear even brighter.
+
+* **emissiveMap**
+
+    is a texture map that specifies the emissive color of the material.
+
+    The ***emissive*** color is the color of the material that appears to be self-illuminated, regardless of any light sources in the scene. This texture map is used to define the intensity and color of the emissive effect, which can be useful for creating materials that appear to glow in the dark or emit light.
+
+    If the ***emissiveMap*** property is set to a texture, it will be multiplied by the ***emissive*** color and added to the final color of the material during rendering. The intensity of the emissive effect can be controlled with the ***emissiveIntensity*** property.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
