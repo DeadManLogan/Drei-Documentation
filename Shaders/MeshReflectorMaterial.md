@@ -934,6 +934,26 @@ ________________________________________________________________________________
 
     In this example, the material's compiled shader program will be stored in the cache using the key "my-custom-key", instead of the default cache key.
 
+* **roughness**
+
+    is a float value between 0 and 1 that determines the surface roughness of the material. A value of 0 means that the surface is perfectly smooth and reflects light in a mirror-like manner, while a value of 1 means that the surface is completely rough and scatters the reflected light in all directions. Values in between 0 and 1 control the degree of roughness of the surface.
+
+    In physically-based rendering, roughness is often used as a complementary property to the material's specular/glossiness value to simulate the appearance of different surfaces, ranging from highly polished metals to rough and porous materials like concrete or fabric.
+
+* **metalness**
+
+    is a value between ***0*** and ***1*** that controls the amount of metalness of the material.
+
+    A metalness value of ***0*** indicates that the material is completely dielectric, while a value of ***1*** indicates that the material is completely metallic. Materials with a metalness value of ***0.5*** are a blend of both dielectric and metallic properties.
+
+    This property is typically used in conjunction with the ***roughness*** property to control the appearance of the material.
+
+* **map**
+
+    is a texture map to be used for the surface of the material. It is used to define the surface color of the material by modulating the reflectivity and roughness values. The texture is a 2D image that is typically loaded from an external file or generated dynamically in code.
+
+    The ***map*** property can be set to a ***Texture*** object, which is an instance of the ***THREE.Texture*** class in the ***three.js*** library. This class provides many options for controlling the behavior of the texture, such as mapping modes, wrapping modes, and filtering modes.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
