@@ -954,6 +954,22 @@ ________________________________________________________________________________
 
     The ***map*** property can be set to a ***Texture*** object, which is an instance of the ***THREE.Texture*** class in the ***three.js*** library. This class provides many options for controlling the behavior of the texture, such as mapping modes, wrapping modes, and filtering modes.
 
+* **lightMap**
+
+    is a texture map that can be used to modulate the lightness or darkness of different areas of the material. This is accomplished by multiplying the texture color with the base color of the material. The result is that the areas of the material that correspond to lighter areas of the texture will be lighter, while the areas that correspond to darker areas of the texture will be darker.
+
+    The ***lightMap*** texture can be set with a ***Texture*** object and is used in conjunction with the ***lightMapIntensity*** property to control the strength of the effect.
+
+* **lightMapIntensity**
+
+    is used to set the intensity of the light map. It is a value between ***0*** and ***1*** which controls how much the light map affects the material's appearance. A value of ***0*** will completely remove the effect of the light map, while a value of ***1*** will apply the full effect of the light map.
+
+    Light maps are a type of texture used to simulate global illumination in real-time rendering. They are precomputed textures that store lighting information for a scene and can be used to enhance the appearance of materials. The ***lightMap*** property is used to specify the light map texture to use for the material, and the ***lightMapIntensity*** property controls how much the light map affects the material's appearance.
+
+* **aoMap**
+
+    is a texture representing the ambient occlusion shading of the material. Ambient occlusion is a shading method that calculates how much each point in a scene is exposed to ambient lighting, which is light that has been scattered and reflected multiple times before reaching the point. The ***aoMap*** texture is multiplied with the base color of the material to create the final shading. The ***aoMap*** property is a ***Texture*** object and can be set to any valid texture.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
