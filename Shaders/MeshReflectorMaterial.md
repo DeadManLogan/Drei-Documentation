@@ -1037,6 +1037,38 @@ ________________________________________________________________________________
         })
     ```
 
+* **normalMapType**
+
+    it specifies how the normal map texture should be interpreted.
+
+    It can be set to one of three values:
+
+    * ***THREE.TangentSpaceNormalMap***: This is the default value, and indicates that the normal map is in tangent space. This means that the texture uses the tangent, bitangent, and normal vectors to specify the orientation of the surface normal at each texel.
+    * ***THREE.ObjectSpaceNormalMap***: This value indicates that the normal map is in object space, meaning that the texture specifies the orientation of the surface normal relative to the surface itself, rather than relative to the tangent, bitangent, and normal vectors.
+    * ***THREE.RGBADepthPacking***: This value is used when the normal map is stored in an RGBA texture, with the red, green, and blue channels storing the XYZ components of the normal vector, and the alpha channel storing a depth value. This is an alternative to using a separate texture for the depth values.
+
+* **normalScale**
+
+    is used to set the intensity of the normal map. It is a Vector2 that defines the scaling factor of the normal vector in the x and y directions. A value of (1, 1) indicates no scaling of the normal vector. Values greater than 1 will increase the intensity of the normal map, while values less than 1 will decrease it. The default value is (1, 1).
+
+* **displacementMap**
+
+    is a texture map used to displace the vertices of the mesh in the direction of their normals. The displacement amount is controlled by the values of the texture map.
+
+    When the displacement map is applied, the geometry of the mesh is modified, creating the appearance of surface details that are not actually present in the original mesh. The ***displacementMap*** property is a Texture object that can be loaded from an image or created dynamically. The texture can be used to create a range of effects, from subtle surface variations to extreme deformations.
+
+    The ***displacementMap*** property is typically used in conjunction with the ***displacementScale*** property, which controls the intensity of the displacement effect. The ***displacementBias*** property can be used to adjust the center point of the displacement effect.
+
+* **displacementScale**
+
+    is a numeric property that defines the scaling factor of the displacement map. The displacement map is a texture that modifies the position of vertices in the mesh to give the appearance of 3D depth. The ***displacementScale*** property controls the amount of displacement, with larger values resulting in more dramatic depth effects.
+
+* **displacementBias**
+
+    is used to specify the amount of displacement to apply to the vertices of the material's mesh. It is a number that determines how much to move the vertices along their normals before rendering. A positive value will move the vertices outwards, while a negative value will move them inwards.
+
+    This property is used in conjunction with the ***displacementMap*** property, which is a texture that specifies how much displacement to apply to each pixel on the material's surface.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
