@@ -1008,6 +1008,35 @@ ________________________________________________________________________________
 
     If the ***emissiveMap*** property is set to a texture, it will be multiplied by the ***emissive*** color and added to the final color of the material during rendering. The intensity of the emissive effect can be controlled with the ***emissiveIntensity*** property.
 
+* **bumpMap**
+
+    is a texture that provides height information to simulate bumpiness or roughness on the surface of the material. The texture should be in grayscale and lighter shades represent higher elevations. The texture is used to perturb the surface normals and create the appearance of bumps and roughness in lighting calculations.
+
+    When the ***bumpMap*** property is set, the ***MeshReflectorMaterial*** will use the texture to calculate the surface normal perturbation in the shader, which affects how the material reacts to light. The ***bumpScale*** property can be used to adjust the strength of the effect.
+
+* **bumpScale**
+
+    is used to set the amount of bump mapping applied to the material. Bump mapping is a technique used in computer graphics to simulate bumps and wrinkles on the surface of an object.
+
+    The ***bumpScale*** property is a scalar value that multiplies the bump map's RGB color values. A higher value will make the bumps appear more pronounced, while a lower value will make them appear more subtle. The default value of ***bumpScale*** is ***1***.
+
+* **normalMap**
+
+    is used to specify the normal map texture of the material.
+
+    A normal map is an image texture that stores surface normal data in its RGB channels. It is used to give the impression of a surface with more detail than what is actually modeled in the geometry. The normal map texture is used to perturb the surface normals of a model, creating the illusion of bumps, scratches, and other surface details that would be too complex or too resource-intensive to model with geometry.
+
+    Here is an example of using the ***normalMap*** property in a ***MeshReflectorMaterial*** component:
+
+    ```jsx
+        import { MeshReflectorMaterial } from 'drei'
+        import normalMapTexture from './textures/normalMap.png'
+
+        const material = new MeshReflectorMaterial({
+            normalMap: normalMapTexture
+        })
+    ```
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
