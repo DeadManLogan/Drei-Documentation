@@ -1069,6 +1069,38 @@ ________________________________________________________________________________
 
     This property is used in conjunction with the ***displacementMap*** property, which is a texture that specifies how much displacement to apply to each pixel on the material's surface.
 
+* **roughnessMap**
+
+    is a texture map used to specify the roughness of the material. The roughness map is a grayscale image where lighter colors represent rougher surfaces and darker colors represent smoother surfaces. This property is used in combination with the ***roughness*** property, which specifies the overall roughness of the material.
+
+    When both ***roughnessMap*** and ***roughness*** properties are used, the ***roughness*** property acts as a multiplier for the values in the ***roughnessMap***. This means that the final roughness of the material is determined by multiplying the values in the ***roughnessMap*** by the value of the ***roughness*** property.
+
+* **metalnessMap**
+
+    is a texture map that defines the metalness of the material for each pixel. The map uses grayscale values where black corresponds to non-metallic and white corresponds to metallic. The texture is usually a grayscale image, where brighter areas correspond to more metallic surfaces.
+
+    When a ***metalnessMap*** is provided, it overrides the ***metalness*** property of the material. If both the ***metalnessMap*** and ***metalness*** properties are set, the ***metalnessMap*** takes precedence.
+
+    Here's an example of how to use ***metalnessMap*** in a ***MeshReflectorMaterial***:
+
+    ```jsx
+        import { MeshReflectorMaterial } from 'drei'
+        import metalnessMapTexture from './metalnessMapTexture.jpg'
+
+        const material = new MeshReflectorMaterial({
+            metalnessMap: metalnessMapTexture,
+            // Other material properties...
+        })
+    ```
+
+    In this example, the ***metalnessMapTexture*** is a pre-loaded texture that defines the metalness of the material.
+
+* **alphaMap**
+
+    is a texture map that controls the alpha channel (transparency) of the material. It is used to create cutout effects, such as for objects with holes or for foliage with irregular shapes.
+
+    The ***alphaMap*** is a texture that should be assigned to the property as a ***THREE.Texture*** object. The texture can be created using an image or a data URL, or loaded from a file using a texture loader. The alpha channel of the texture determines the transparency of the material, with black being completely transparent and white being completely opaque. The ***alphaMap*** property is multiplied with the alpha channel of the material's ***map*** property, if it exists.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
