@@ -1101,6 +1101,55 @@ ________________________________________________________________________________
 
     The ***alphaMap*** is a texture that should be assigned to the property as a ***THREE.Texture*** object. The texture can be created using an image or a data URL, or loaded from a file using a texture loader. The alpha channel of the texture determines the transparency of the material, with black being completely transparent and white being completely opaque. The ***alphaMap*** property is multiplied with the alpha channel of the material's ***map*** property, if it exists.
 
+* **envMap**
+
+    is used to specify the environment map to be used for reflections on the material. An environment map is a texture that provides an image of the surrounding environment, and is typically used for simulating reflections and refractions.
+
+    When ***envMap*** is set to a texture, the material will use it to generate reflections based on the properties specified in other material settings. For example, the ***reflectivity*** property can be used to adjust the strength of the reflections.
+
+    Here is an example of how to set the ***envMap*** property to a texture:
+
+    ```jsx
+        import { MeshReflectorMaterial } from 'drei'
+        import { CubeTextureLoader } from 'three'
+
+        // Create a CubeTextureLoader instance
+        const loader = new CubeTextureLoader();
+
+        // Load an environment map texture
+        const envMap = loader.load([
+            'path/to/px.png',
+            'path/to/nx.png',
+            'path/to/py.png',
+            'path/to/ny.png',
+            'path/to/pz.png',
+            'path/to/nz.png',
+        ]);
+
+        // Create a MeshReflectorMaterial with the environment map
+        const material = new MeshReflectorMaterial({ envMap: envMap });
+    ```
+
+    In this example, a ***CubeTextureLoader*** is used to load an environment map texture with six faces, and the resulting texture is set as the ***envMap*** property of the ***MeshReflectorMaterial***.
+
+* **envMapIntensity**
+
+    is used to control the intensity of the environment map that is applied to the material.
+
+    An environment map is a texture that is used to simulate the reflection of the surrounding environment on a material. The ***envMap*** property of the ***MeshReflectorMaterial*** component is used to specify the environment map texture.
+
+    The ***envMapIntensity*** property is a value between 0 and 1, where 0 means the environment map has no effect on the material, and 1 means the environment map is fully applied to the material.
+
+    By adjusting the ***envMapIntensity*** property, you can control the strength of the reflection and achieve the desired level of realism for your scene.
+
+* **wireframeLinecap**
+
+    It sets the style of the ends of wireframe lines in a material.
+
+    The ***wireframeLinecap*** property accepts three values: ***"butt", "round", and "square"***. ***"butt"*** is the default value, and it creates a flat end to each wireframe line. ***"round"*** creates a rounded end, while ***"square"*** creates a square end.
+
+    This property is typically used to control the style of wireframe meshes, which are a visual representation of an object's wireframe, made up of lines rather than solid faces.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
