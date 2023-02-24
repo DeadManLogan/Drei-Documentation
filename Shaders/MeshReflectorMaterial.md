@@ -1150,6 +1150,44 @@ ________________________________________________________________________________
 
     This property is typically used to control the style of wireframe meshes, which are a visual representation of an object's wireframe, made up of lines rather than solid faces.
 
+* **wireframeLinejoin**
+
+    it determines how the corners of the wireframe geometry are joined together.
+
+    The value of ***wireframeLinejoin*** can be set to one of the following string values:
+
+    * ***"round"***: the corners of the wireframe geometry are rounded.
+    * ***"bevel"***: the corners of the wireframe geometry are beveled.
+    * ***"miter"***: the corners of the wireframe geometry are joined with a sharp miter.
+
+    By default, ***wireframeLinejoin*** is set to ***"round"***.
+
+* **flatShading**
+
+    is a boolean value that specifies whether the shading of the material should be flat or smooth.
+
+    If ***flatShading*** is set to ***true***, the material will be shaded using flat shading, where the color of each face is constant and does not vary across the face. This can create a faceted appearance for the object.
+
+    If ***flatShading*** is set to ***false***, the material will be shaded using smooth shading, where the color of each point on the surface is interpolated based on the normals of adjacent faces. This creates a smoother appearance for the object.
+
+    By default, ***flatShading*** is set to ***false***.
+
+* **isMeshStandardMaterial**
+
+    is a boolean property that is set to ***true*** to indicate that the material is an instance of the ***MeshStandardMaterial*** class in the three.js library. This property is used internally by the three.js renderer to identify and handle instances of ***MeshStandardMaterial***.
+
+* **mixBlur**
+
+    is a custom shader material for three.js that allows a mesh to reflect its surroundings.
+
+    The ***mixBlur*** property specifies the amount of blurring to be applied to the reflected image. It is a float value between 0 and 1, with 0 indicating no blurring and 1 indicating maximum blurring.
+
+    By adjusting this property, you can control the degree of sharpness of the reflection. A lower value will produce a sharper reflection, while a higher value will produce a more blurred reflection.
+
+* **mixStrength**
+
+    it specifies the strength of the reflection mixing between the reflected scene and the surface color of the material. It is a value between 0 and 1, where 0 means no reflection mixing and 1 means full reflection mixing.
+
 * **normalScale**
 
     is used to specify how to scale the normals of a reflected object in a WebXR application.
