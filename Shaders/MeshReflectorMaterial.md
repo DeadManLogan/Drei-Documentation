@@ -1049,7 +1049,11 @@ ________________________________________________________________________________
 
 * **normalScale**
 
-    is used to set the intensity of the normal map. It is a Vector2 that defines the scaling factor of the normal vector in the x and y directions. A value of (1, 1) indicates no scaling of the normal vector. Values greater than 1 will increase the intensity of the normal map, while values less than 1 will decrease it. The default value is (1, 1).
+    is used to specify how to scale the normals of a reflected object in a WebXR application.
+
+    The normal scale property controls the appearance of the reflections on the surface of an object that is using the MeshReflectorMaterial. The normals of the reflected object are used to calculate the angle at which light should be reflected, and the normal scale property allows you to adjust this calculation. By changing the normal scale property, you can control the intensity and quality of the reflections on the surface of the object.
+
+    For example, a value of 1 will result in reflections that match the normals of the reflected object exactly, while a value of 0 will result in no reflections. The normal scale property can also be negative, which will result in inverted reflections.
 
 * **displacementMap**
 
@@ -1188,10 +1192,65 @@ ________________________________________________________________________________
 
     it specifies the strength of the reflection mixing between the reflected scene and the surface color of the material. It is a value between 0 and 1, where 0 means no reflection mixing and 1 means full reflection mixing.
 
-* **normalScale**
+* **minDepthThreshold**
 
-    is used to specify how to scale the normals of a reflected object in a WebXR application.
+    is used to set the minimum depth threshold for the reflection.
 
-    The normal scale property controls the appearance of the reflections on the surface of an object that is using the MeshReflectorMaterial. The normals of the reflected object are used to calculate the angle at which light should be reflected, and the normal scale property allows you to adjust this calculation. By changing the normal scale property, you can control the intensity and quality of the reflections on the surface of the object.
+    This property is used to control how far back the reflections should be visible. It is a value between 0 and 1, where 0 means that the reflections will be visible from the camera position, and 1 means that the reflections will only be visible from the reflection plane.
 
-    For example, a value of 1 will result in reflections that match the normals of the reflected object exactly, while a value of 0 will result in no reflections. The normal scale property can also be negative, which will result in inverted reflections.
+    By default, this value is set to 0, which means that the reflections will be visible from the camera position. Setting it to a higher value will limit the visibility of the reflections to a smaller range, resulting in a more realistic reflection effect.
+
+* **maxDepthThreshold**
+
+    is used to control the maximum depth at which the reflection can be seen on the surface of the material. It is a float value that represents the maximum depth in world units. Objects beyond this depth will not be visible in the reflection. This property is useful for controlling the level of detail in the reflection and optimizing performance.
+
+* **depthScale**
+
+    is used to scale the depth of the reflections. It is a floating-point value that defaults to 1. Increasing this value will make the reflections appear deeper, while decreasing it will make them appear shallower.
+
+* **depthToBlurRatioBias**
+
+    is used for creating a blur effect on the reflected objects. It is a value that determines the ratio between the depth map and the blur strength.
+
+    The depth map is a texture that stores the distance of each pixel from the camera. The blur strength determines how much the reflected objects are blurred. By adjusting the ***depthToBlurRatioBias*** value, you can control how much the blur effect is influenced by the depth map.
+
+    A higher value will make the blur effect more dependent on the depth map, while a lower value will make the blur effect less dependent on the depth map.
+
+* **mirror**
+
+    is a boolean that*** determines whether or not the material should act as a mirror, reflecting the environment or other objects in the scene. If the ***mirror*** property is set to ***true***, the material will reflect the surrounding environment. If it is set to ***false***, the material will not reflect anything.
+
+    When ***mirror*** is set to ***true***, the material will use the ***envMap*** property as a texture to generate reflections. The ***envMap*** is typically set to a cube map texture that represents the surrounding environment. The ***mirror*** property can be used to create reflective surfaces such as mirrors or shiny objects in the scene.
+
+* **distortion**
+
+    is a Boolean that specifies whether or not to enable the distortion effect on the reflected surface. When set to ***true***, the reflection will appear to have a rippled or wavy effect, similar to the way light is distorted when reflected off a body of water. This effect is achieved by applying a distortion texture to the reflection. The texture is defined by the ***distortionMap*** property, which can be set to an instance of the ***Texture*** class. The intensity of the distortion effect can be adjusted with the ***distortionScale*** property.
+
+* **mixContrast**
+
+    it controls the contrast of the mixed reflection and refraction of the material. It is a float value between 0 and 1, with a default value of 0.2. A value of 0 produces no contrast, while a value of 1 produces high contrast between the reflection and refraction.
+
+* **distortionMap**
+
+    is used to specify a texture that will be used to apply distortion to the reflected image. This can be used to create a variety of effects, such as creating a rippling water effect or a distorted mirror effect. The texture should be a grayscale image, where the white areas represent areas of the texture that should cause the most distortion, and the black areas represent areas that should cause no distortion. The intensity of the distortion can be controlled using the "distortion" property.
+
+* **reflectorOffset**
+
+    resents the amount of offset in the horizontal and vertical direction of the texture.
+
+    For example, if you set ***reflectorOffset={[1,1]}***, it will shift the texture one unit to the right and one unit up. Similarly, if you set ***reflectorOffset={[-1,0]}***, it will shift the texture one unit to the left.
+
+    Here's an example of how you can use it:
+
+    ```js
+        import { MeshReflectorMaterial } from 'drei';
+
+        function MyComponent() {
+            return (
+                <mesh>
+                <sphereBufferGeometry />
+                <MeshReflectorMaterial reflectorOffset={[1, 1]} />
+                </mesh>
+            );
+        }
+    ```
