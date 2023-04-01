@@ -215,3 +215,37 @@ ________________________________________________________________________________
     ```
 
     In this example, we create a new instance of the **MeshDistortMaterial** class and log the value of its **id** property to the console. The output should be a unique integer value that identifies the material instance.
+
+* **uuid**
+
+    is a unique identifier assigned to each instance of the material. This property is inherited from the **Material** class in Three.js, which is the base class for all material types.
+
+    The **uuid** property is a string that is automatically generated when the material instance is created. This property can be useful for identifying and tracking material instances in your code, especially when working with scenes and objects that contain multiple materials.
+
+    Here is an example of how you can access the **uuid** property of a **MeshDistortMaterial** instance in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const material = new MeshDistortMaterial({/* options */});
+        console.log(material.uuid); // should print a unique string value
+    ```
+
+    In this example, we create a new instance of the **MeshDistortMaterial** class and log the value of its **uuid** property to the console. The output should be a unique string value that identifies the material instance.
+
+* **name**
+
+    is an optional string that can be used to give a name to the material instance. This property is inherited from the **Material** class in Three.js, which is the base class for all material types.
+
+    The **name** property can be useful for identifying and accessing material instances in your code, especially when working with scenes and objects that contain multiple materials.
+
+    Here is an example of how you can set the **name** property of a **MeshDistortMaterial** instance in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const material = new MeshDistortMaterial({/* options */});
+        material.name = 'myMaterial';
+    ```
+
+    In this example, we create a new instance of the **MeshDistortMaterial** class and set its **name** property to the string value **'myMaterial'**. This can be useful later on for identifying and accessing the material instance in your code.
