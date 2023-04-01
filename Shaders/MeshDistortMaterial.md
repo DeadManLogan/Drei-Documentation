@@ -181,3 +181,37 @@ ________________________________________________________________________________
     In this example, we create a **Mesh** object and attach an **EventDispatcher** object to it using the **userData** property. We then add a custom event listener to the mesh and log a message when the event is triggered. Finally, we use the **dispatchEvent** method to trigger the custom event on the mesh.
 
     Note that while the **dispatchEvent** method is not directly related to the **MeshDistortMaterial** class in Drei.js, it can be used to trigger events on any object in Three.js, including meshes that are using the **MeshDistortMaterial**.
+
+* **type**
+
+    is used to identify the type of the material. This property is inherited from the **Material** class in Three.js, which is the base class for all material types.
+
+    The **type** property is a string that identifies the type of the material. In the case of the **MeshDistortMaterial**, the value of the **type** property is **'MeshDistortMaterial'**.
+
+    Here is an example of how you can access the **type** property of a **MeshDistortMaterial** instance in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const material = new MeshDistortMaterial({/* options */});
+        console.log(material.type); // should print "MeshDistortMaterial"
+    ```
+
+    In this example, we create a new instance of the **MeshDistortMaterial** class and log the value of its **type** property to the console. The output should be the string **"MeshDistortMaterial"**, which identifies the type of the material.
+
+* **id**
+
+    is a unique identifier assigned to each instance of the material. This property is inherited from the **Material** class in Three.js, which is the base class for all material types.
+
+    The **id** property is an integer that is automatically generated when the material instance is created. This property can be useful for debugging and tracking material instances in your code.
+
+    Here is an example of how you can access the **id** property of a **MeshDistortMaterial** instance in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const material = new MeshDistortMaterial({/* options */});
+        console.log(material.id); // should print a unique integer value
+    ```
+
+    In this example, we create a new instance of the **MeshDistortMaterial** class and log the value of its **id** property to the console. The output should be a unique integer value that identifies the material instance.
