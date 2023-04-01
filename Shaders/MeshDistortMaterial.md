@@ -119,3 +119,65 @@ ________________________________________________________________________________
     In this example, we create a **Mesh** object and attach an **EventDispatcher** object to it using the **userData** property. We then add a click event listener to the mesh and log a message when the event is triggered. Finally, we use the **hasEventListener** method to check if the mesh has a click event listener attached to it.
 
     Note that while the **hasEventListener** method is not directly related to the **MeshDistortMaterial** class in Drei.js, it can be used to check if certain types of events are attached to any object in Three.js, including meshes that are using the **MeshDistortMaterial**.
+
+* **removeEventListener**
+
+    is commonly used in Three.js to remove event listeners that were previously attached to an object using the **addEventListener** method. This method is used to selectively remove event listeners from objects, which can help to improve performance and reduce memory usage in interactive applications.
+
+    Here is an example of how you can use the **removeEventListener** method in Three.js to remove a click event listener from a mesh:
+
+    ```js
+        import { Mesh, EventDispatcher } from 'three';
+
+        const mesh = new Mesh(/* geometry, material */);
+
+        // create an event dispatcher and attach it to the mesh
+        const dispatcher = new EventDispatcher();
+        mesh.userData.dispatcher = dispatcher;
+
+        // add a click event listener to the mesh
+        const clickListener = (event) => {
+        console.log(`Clicked on mesh`);
+        };
+        mesh.addEventListener('click', clickListener);
+
+        // remove the click event listener from the mesh
+        mesh.removeEventListener('click', clickListener);
+
+        // check if the mesh still has a click event listener
+        const hasClickListener = mesh.userData.dispatcher.hasEventListener('click');
+        console.log(`Mesh has click event listener: ${hasClickListener}`); // should print "false"
+    ```
+
+    In this example, we create a **Mesh** object and attach an **EventDispatcher** object to it using the **userData** property. We then add a click event listener to the mesh and log a message when the event is triggered. Finally, we remove the click event listener using the **removeEventListener** method and verify that the mesh no longer has a click event listener attached to it.
+
+    Note that while the **removeEventListener** method is not directly related to the **MeshDistortMaterial** class in Drei.js, it can be used to remove event listeners from any object in Three.js, including meshes that are using the **MeshDistortMaterial**.
+
+* **dispatchEvent**
+
+    is commonly used in Three.js to trigger events on objects that have event listeners attached to them. This method is used to trigger custom events or built-in events, such as click, mouseover, or keydown events, on objects in Three.js.
+
+    Here is an example of how you can use the **dispatchEvent** method in Three.js to trigger a custom event on a mesh:
+
+    ```js
+        import { Mesh, EventDispatcher } from 'three';
+
+        const mesh = new Mesh(/* geometry, material */);
+
+        // create an event dispatcher and attach it to the mesh
+        const dispatcher = new EventDispatcher();
+        mesh.userData.dispatcher = dispatcher;
+
+        // add a custom event listener to the mesh
+        mesh.addEventListener('customEvent', (event) => {
+        console.log(`Custom event triggered on mesh`);
+        });
+
+        // trigger the custom event on the mesh
+        const customEvent = { type: 'customEvent' };
+        mesh.userData.dispatcher.dispatchEvent(customEvent);
+    ```
+
+    In this example, we create a **Mesh** object and attach an **EventDispatcher** object to it using the **userData** property. We then add a custom event listener to the mesh and log a message when the event is triggered. Finally, we use the **dispatchEvent** method to trigger the custom event on the mesh.
+
+    Note that while the **dispatchEvent** method is not directly related to the **MeshDistortMaterial** class in Drei.js, it can be used to trigger events on any object in Three.js, including meshes that are using the **MeshDistortMaterial**.
