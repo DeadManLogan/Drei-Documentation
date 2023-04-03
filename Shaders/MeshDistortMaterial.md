@@ -286,3 +286,37 @@ ________________________________________________________________________________
     ```
 
     In this example, we create a new instance of the **MeshDistortMaterial** class and set its **userData** property to an object with two properties: **foo** with the string value **'bar'** and **baz** with the number value **42**. This custom data can be accessed later on by other parts of your code that have access to the material instance.
+
+* **toJSON**
+
+    is a method that returns a JSON representation of the material instance. This property is inherited from the **Material** class in Three.js, which is the base class for all material types.
+
+    The **toJSON** method can be useful for serializing material instances to JSON format, which can then be stored or transmitted over a network. When a material instance is serialized using **toJSON**, all of its properties are included in the resulting JSON object, except for properties that have the value **undefined**.
+
+    Here is an example of how you can use the **toJSON** method to serialize a **MeshDistortMaterial** instance in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const material = new MeshDistortMaterial({/* options */});
+        const materialJson = material.toJSON();
+    ```
+
+    In this example, we create a new instance of the **MeshDistortMaterial** class and then call its **toJSON** method to serialize the material instance to a JSON object. The resulting **materialJson** object will contain all of the material's properties as key-value pairs in JSON format.
+
+* **clone**
+
+    is a method that creates a new instance of the material that is a copy of the original material instance. This property is inherited from the **Material** class in Three.js, which is the base class for all material types.
+
+    The **clone** method can be useful for creating multiple copies of a material with the same properties, but with different settings or parameters. When you **clone** a material instance using clone, a new instance of the material is created with all of the same property values as the original material.
+
+    Here is an example of how you can use the **clone** method to create a copy of a MeshDistortMaterial instance in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const originalMaterial = new MeshDistortMaterial({/* options */});
+        const clonedMaterial = originalMaterial.clone();
+    ```
+
+    In this example, we create a new instance of the **MeshDistortMaterial** class called **originalMaterial**. We then call its **clone** method to create a new instance of the material that is a copy of **originalMaterial**. The resulting **clonedMaterial** instance will have all of the same property values as **originalMaterial**.
