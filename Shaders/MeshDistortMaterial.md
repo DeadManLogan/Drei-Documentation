@@ -249,3 +249,40 @@ ________________________________________________________________________________
     ```
 
     In this example, we create a new instance of the **MeshDistortMaterial** class and set its **name** property to the string value **'myMaterial'**. This can be useful later on for identifying and accessing the material instance in your code.
+
+* **visible**
+
+    determines whether the material instance is visible or not. This property is inherited from the **Material** class in Three.js, which is the base class for all material types.
+
+    The **visible** property is a boolean value that is **true** by default, meaning that the material is visible in the scene. If you set the **visible** property to **false**, the material will be hidden from the scene.
+
+    Here is an example of how you can set the **visible** property of a **MeshDistortMaterial** instance in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const material = new MeshDistortMaterial({/* options */});
+        material.visible = false;
+    ```
+
+    In this example, we create a new instance of the **MeshDistortMaterial** class and set its **visible** property to **false**. This will make the material instance invisible in the scene.
+
+* **userData**
+
+    is an object that can be used to store custom data associated with the material instance. This property is inherited from the Material class in Three.js, which is the base class for all material types.
+
+    The userData property can be useful for attaching additional information or metadata to the material instance, such as custom properties or data that is not directly related to the rendering of the material.
+
+    Here is an example of how you can set the userData property of a MeshDistortMaterial instance in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const material = new MeshDistortMaterial({/* options */});
+        material.userData = {
+            foo: 'bar',
+            baz: 42
+        };
+    ```
+
+    In this example, we create a new instance of the **MeshDistortMaterial** class and set its **userData** property to an object with two properties: **foo** with the string value **'bar'** and **baz** with the number value **42**. This custom data can be accessed later on by other parts of your code that have access to the material instance.
