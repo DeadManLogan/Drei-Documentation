@@ -320,3 +320,42 @@ ________________________________________________________________________________
     ```
 
     In this example, we create a new instance of the **MeshDistortMaterial** class called **originalMaterial**. We then call its **clone** method to create a new instance of the material that is a copy of **originalMaterial**. The resulting **clonedMaterial** instance will have all of the same property values as **originalMaterial**.
+
+* **copy**
+
+    is a method that copies the properties of another material instance to the current material instance. This property is inherited from the **Material** class in Three.js, which is the base class for all material types.
+
+    The **copy** method can be useful for copying the properties of one material instance to another instance, without having to create a new instance from scratch. When you call the **copy** method on a **MeshDistortMaterial** instance, the properties of the material instance passed as an argument are copied to the current material instance.
+
+    Here is an example of how you can use the **copy** method to copy the properties of one **MeshDistortMaterial** instance to another instance in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const material1 = new MeshDistortMaterial({/* options */});
+        const material2 = new MeshDistortMaterial({/* options */});
+
+        material2.copy(material1);
+    ```
+
+    In this example, we create two instances of the **MeshDistortMaterial** class called **material1** and **material2**. We then call the **copy** method on **material2**, passing **material1** as an argument. The properties of **material1** are copied to **material2**, so **material2** now has the same property values as **material1**.
+
+* **opacity**
+
+    is a value that determines the transparency of the material. It is a number between **0** and **1**, where **0** is completely transparent (invisible) and **1** is completely opaque (visible).
+
+    The **opacity** property can be used to create materials that are partially transparent or to create materials that fade in or out over time. For example, you can set the **opacity** of a **MeshDistortMaterial** instance to **0.5** to create a material that is half transparent.
+
+    Here is an example of how you can use the **opacity** property to create a partially transparent **MeshDistortMaterial** instance in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const material = new MeshDistortMaterial({
+        opacity: 0.5,
+        transparent: true,
+        // other options...
+        });
+    ```
+
+    In this example, we create a new instance of the **MeshDistortMaterial** class called **material**. We set its **opacity** property to **0.5**, which makes the material half transparent. We also set the **transparent** property to **true**, which tells the material to render with transparency enabled. Finally, we set any other options that we want for the material.
