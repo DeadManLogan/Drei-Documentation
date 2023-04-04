@@ -359,3 +359,43 @@ ________________________________________________________________________________
     ```
 
     In this example, we create a new instance of the **MeshDistortMaterial** class called **material**. We set its **opacity** property to **0.5**, which makes the material half transparent. We also set the **transparent** property to **true**, which tells the material to render with transparency enabled. Finally, we set any other options that we want for the material.
+
+* **color**
+
+    is a value that determines the color of the material. It can be set to any valid CSS color string, such as **red**, **#ff0000**, or **rgb(255, 0, 0)**.
+
+    The **color** property can be used to create materials that have a solid color. For example, you can set the **color** property of a **MeshDistortMaterial** instance to red to create a material that is **red**.
+
+    Here is an example of how you can use the **color** property to create a **MeshDistortMaterial** instance with a solid color in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const material = new MeshDistortMaterial({
+        color: 'red',
+        // other options...
+        });
+    ```
+
+    In this example, we create a new instance of the **MeshDistortMaterial** class called **material**. We set its **color** property to red, which makes the material solid **red**. We also set any other options that we want for the material.
+
+* **depthWrite**
+
+    is a boolean value that determines whether or not the material should write to the depth buffer when it is rendered.
+
+    The depth buffer is a part of the rendering pipeline that keeps track of the depth of each pixel as it is rendered. By default, when a material is rendered, it writes its depth value to the depth buffer. This allows the renderer to correctly handle situations where one object is in front of another, and ensures that objects are rendered in the correct order.
+
+    However, in some cases, you may want to disable depth writing for a material. For example, if you have a transparent material that is blended with other objects in the scene, you may want to disable depth writing so that the transparent object doesn't overwrite the depth buffer for the objects behind it.
+
+    Here is an example of how you can use the **depthWrite** property to disable depth writing for a **MeshDistortMaterial** instance in Drei.js:
+
+    ```js
+        import { MeshDistortMaterial } from 'drei';
+
+        const material = new MeshDistortMaterial({
+        depthWrite: false,
+        // other options...
+        });
+    ```
+
+    In this example, we create a new instance of the **MeshDistortMaterial** class called **material**. We set its **depthWrite** property to **false**, which tells the renderer not to write the material's depth to the depth buffer when it is rendered. We also set any other options that we want for the material.
